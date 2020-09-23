@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/rentcar"
+    android:icon="@drawable/car1"
+    android:title="@string/rentcar" />
+
+    <item android:id="@+id/addcar"
+        android:icon="@drawable/car"
+        android:title="@string/addcar" />
+
+    <item android:id="@+id/rentdriver"
+        android:icon="@drawable/driver1"
+        android:title="Rent Driver" />
+
+    <item android:id="@+id/adddriver"
+        android:icon="@drawable/driver"
+        android:title="@string/adddriver" />
+
+    <item android:id="@+id/notification"
+        android:icon="@drawable/notification"
+        android:title="@string/notification" />
+
+    <item android:id="@+id/updatecar"
+        android:icon="@drawable/tools"
+        android:title="@string/updatecar" />
+
+    <item android:id="@+id/updatedriver"
+        android:icon="@drawable/tools"
+        android:title="@string/updatedriver" />
+
+    <item android:id="@+id/about"
+        android:icon="@drawable/about"
+        android:title="@string/about" />
+</menu>
