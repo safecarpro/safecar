@@ -69,6 +69,21 @@ public class Addcar extends AppCompatActivity {
             }
         });
 
+        carreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                brand.getText().clear();
+                model.getText().clear();
+                amount.getText().clear();
+                agency.getText().clear();
+                kms.getText().clear();
+                phonenum.getText().clear();
+                loc.getText().clear();
+                emailcar.getText().clear();;
+
+            }
+        });
+
 
 
         addcar.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +108,9 @@ public class Addcar extends AppCompatActivity {
                 byte[] newentryimg = imageViewToByte(iv);
 
                 Addcar2(cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar,newentryimg);
+
+                Intent main = new Intent(Addcar.this, Home.class);
+                startActivity(main);
 
 
 

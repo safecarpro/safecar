@@ -24,7 +24,7 @@ public class registration extends AppCompatActivity {
     String s_name,s_gen,s_address, s_mob,s_location, s_email, s_pass;
     RadioGroup gender;
     RadioButton selectedGender;
-    Button btnAddData;
+    Button btnAddData,reset;
 
 
     @Override
@@ -42,6 +42,26 @@ public class registration extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         gender=(RadioGroup) findViewById(R.id.radioGender);
         btnAddData = (Button) findViewById(R.id.bt_register);
+        reset = (Button) findViewById(R.id.reset);
+
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                username.getText().clear();
+                email.getText().clear();
+                password.getText().clear();
+                address.getText().clear();
+                phnno.getText().clear();
+                location.getText().clear();
+
+
+
+
+            }
+        });
+
 
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override

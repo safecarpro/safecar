@@ -73,6 +73,8 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "rented car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.addcar:
+                        Intent main = new Intent(Home.this, Addcar.class);
+                        startActivity(main);
                         Toast.makeText(Home.this, "added car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.rentdriver:
@@ -154,7 +156,7 @@ public class Home extends AppCompatActivity  {
                     }
                 }, Toast.LENGTH_LONG);
 
-                Intent main = new Intent(Home.this, Addcar.class);
+                Intent main = new Intent(Home.this, listcar.class);
                 startActivity(main);
                 finish();
 
@@ -164,6 +166,17 @@ public class Home extends AppCompatActivity  {
 
 
 
+
+
+
+    }
+
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent in = new Intent(getApplicationContext(),Home.class);
+        startActivity(in);
+        finish();
     }
 
     @Override
