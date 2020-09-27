@@ -9,7 +9,9 @@ import androidx.appcompat.widget.Toolbar;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +26,7 @@ import java.util.Calendar;
 
 public class Home extends AppCompatActivity  {
 
-    DatabaseHelper db;
+    DatabaseHelper db2;
    private DrawerLayout dl;
    private NavigationView nv;
    private Toolbar tb;
@@ -32,6 +34,8 @@ public class Home extends AppCompatActivity  {
     Button car,driver;
     ImageView dateic1,dateic2,locic;
     private int mdate,mmonth,myear;
+    String datepick,datedrop;
+
 
 
     @Override
@@ -39,6 +43,7 @@ public class Home extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        db2 = new DatabaseHelper(this);
         dl = findViewById(R.id.drawer);
         nv = findViewById(R.id.nav);
         tb=findViewById(R.id.appbar);
@@ -130,6 +135,28 @@ public class Home extends AppCompatActivity  {
                     }
                 },myear,mmonth,mdate);
                 datePickerDialog.show();
+
+            }
+        });
+
+
+        car.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datepick = pick.getText().toString();
+                datedrop = drop.getText().toString();
+                db2.insertdatedata(datepick, datedrop);
+                Toast.makeText(Home.this, "Date added ", Toast.LENGTH_LONG).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, Toast.LENGTH_LONG);
+
+                Intent main = new Intent(Home.this, Addcar.class);
+                startActivity(main);
+                finish();
 
             }
         });
