@@ -43,6 +43,7 @@ public class Login extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(Login.this, registration.class);
                 startActivity(i);
             }
@@ -60,14 +61,14 @@ public class Login extends AppCompatActivity {
                 mProgress.show();
 
                 //Authenticate User
-              UserModel currentUser = MyDB.Authenticate(new UserModel(s_username,s_password));
+                UserModel currentUser = MyDB.Authenticate(new UserModel(s_username, s_password));
 
 
                 //Check Authentication is successful or not
                 if (currentUser != null) {
                     mProgress.dismiss();
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("uid",currentUser.user_id);
+                    editor.putString("uid", currentUser.user_id);
                     editor.commit();
                     Intent goToDash = new Intent(Login.this, Home.class);
                     startActivity(goToDash);

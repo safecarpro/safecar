@@ -37,6 +37,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_cloc = "loation";
     public static final String COL_cemail = "email";
     public static final String COL_iv = "iv";
+    //Driver details
+    public static final String TABLE_DRIVER = "drivertable";
+    public static final String COL_did = "did";
+    public static final String COL_dname = "name";
+    public static final String COL_daddress = "address";
+    public static final String COL_dage = "age";
+    public static final String COL_dgender = "gender";
+    public static final String COL_dcharge = "charge";
+    public static final String COL_dbadges = "badges";
+    public static final String COL_dlocation = "location";
+    public static final String COL_dyoe = "yearofexperience";
+    public static final String COL_dphno = "phno";
+    public static final String COL_demail = "email";
+    public static final String COL_v = "v";
     // create  user table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "("
             + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -67,7 +81,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_cloc + " TEXT,"
             + COL_cemail + " TEXT,"
             + COL_iv + " BLOB" + ")";
+// CREATE DRIVER TABLE
 
+    private String CREATE_DRIVER_TABLE = "CREATE TABLE " + TABLE_DRIVER + "("
+            +COL_did+ " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_dname + " TEXT,"
+            + COL_daddress+ " TEXT,"
+            + COL_dage + " TEXT,"
+            + COL_dgender + " TEXT,"
+            + COL_dcharge + " TEXT,"
+            + COL_dbadges + " TEXT,"
+            + COL_dlocation + " TEXT,"
+            + COL_dyoe + " TEXT,"
+            + COL_dphno + " TEXT,"
+            + COL_demail + " TEXT,"
+            + COL_v + " BLOB" + ")";
 
     public DatabaseHelper(@Nullable Context context) {
 
@@ -80,6 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_USER_TABLE);
         db.execSQL(CREATE_DATE_TABLE);
         db.execSQL(CREATE_CAR_TABLE);
+        db.execSQL(CREATE_DRIVER_TABLE);
     }
 
 
@@ -155,7 +184,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean insertdriverdata(String dname, String daddress, String dage, String dgender, String dcharge, String dbadge,  String dlocation,String dyoe,String dphno,String demail, byte[] img) {
 
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_dname, dname);
+        contentValues.put(COL_daddress, daddress);
+        contentValues.put(COL_dage, dage);
+        contentValues.put(COL_dgender, dgender);
+        contentValues.put(COL_dcharge, dcharge);
+        contentValues.put(COL_dbadges, dbadge);
+        contentValues.put(COL_dlocation, dlocation);
+        contentValues.put(COL_dyoe, dyoe);
+        contentValues.put(COL_dphno, dphno);
+        contentValues.put(COL_demail, demail);
+        contentValues.put(COL_v, img);
+        long result = db.insert(TABLE_DRIVER, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+
+    }
 
     public UserModel Authenticate(UserModel userModel) {
 
@@ -210,7 +260,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return  cursor;
     }
-
+    public Cursor getData(String sql){
+        SQLiteDatabase database = getReadableDatabase();
+        return database.rawQuery(sql, null);
+    }
 
 
 }

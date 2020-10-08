@@ -21,6 +21,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.regex.Pattern;
 
 public class Addcar extends AppCompatActivity {
 
@@ -31,6 +32,13 @@ public class Addcar extends AppCompatActivity {
 
     ImageView iv;
     String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage;
+    
+    
+    public final Pattern EMAIL_ADDRESS_PATTERN = Pattern
+            .compile("[a-zA-Z0-9+._%-+]{1,256}" + "@"
+                    + "[a-zA-Z0-9][a-zA-Z0-9-]{0,64}" + "(" + "."
+                    + "[a-zA-Z0-9][a-zA-Z0-9-]{0,25}" + ")+");
+    
 
 
     @Override
@@ -69,21 +77,6 @@ public class Addcar extends AppCompatActivity {
             }
         });
 
-        carreset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                brand.getText().clear();
-                model.getText().clear();
-                amount.getText().clear();
-                agency.getText().clear();
-                kms.getText().clear();
-                phonenum.getText().clear();
-                loc.getText().clear();
-                emailcar.getText().clear();;
-
-            }
-        });
-
 
 
         addcar.setOnClickListener(new View.OnClickListener() {
@@ -101,36 +94,72 @@ public class Addcar extends AppCompatActivity {
                 cemailcar = emailcar.getText().toString();
                 caddcar = addcar.getText().toString();
                 ccarreset = carreset.getText().toString();
+                if (brand.length() == 0) {
+                    brand.requestFocus();
+                    brand.setError("please enter your brand");
+                } else if (model.length() == 0) {
+                    model.requestFocus();
+                    model.setError("please enter your model");
+                } else if (emailcar.length() == 0) {
+                    emailcar.requestFocus();
+                    emailcar.setError("please enter your email");
+                } else if (!checkEmail(emailcar.getText().toString())) {
+                    emailcar.requestFocus();
+                    emailcar.setError("please enter valid email address");
+                } else if (phonenum.length() == 0) {
+                    phonenum.requestFocus();
+                    phonenum.setError("please enter your phone number");
+                } else if (phonenum.length() != 10) {
+                    phonenum.requestFocus();
+                    phonenum.setError("please enter valid mobile number");
+                } else if (amount.length() == 0) {
+                    amount.requestFocus();
+                    amount.setError("please enter  amount");
+
+                } else if (loc.length() == 0) {
+                    loc.requestFocus();
+                    loc.setError("please enter  location");
+                }
+                else if (agency.length() == 0) {
+                    agency.requestFocus();
+                    agency.setError("please enter  agency");
+                }
+                else if (kms.length() == 0) {
+                    kms.requestFocus();
+                    kms.setError("please enter  kilometers run");
+                } else {
 
 
-                Toast.makeText(Addcar.this, "car added succesfully ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Addcar.this, "car added succesfully ", Toast.LENGTH_LONG).show();
+                }
+                    byte[] newentryimg = imageViewToByte(iv);
 
-                byte[] newentryimg = imageViewToByte(iv);
-
-                Addcar2(cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar,newentryimg);
-
-                Intent main = new Intent(Addcar.this, Home.class);
-                startActivity(main);
+                    Addcar2(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar, newentryimg);
 
 
+                }
 
+                private void Addcar2 (String cbrand, String cmodel, String camount, String
+                cagency, String ckms, String cphone, String cloc, String cemailcar,
+                byte[] newentryimg){
 
-            }
+                    boolean insertcardata = db.insertcardata(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar, newentryimg);
+                }
 
-            private void Addcar2(String cbrand,String cmodel,String camount,String cagency,String ckms,String cphone,String cloc,String cemailcar,byte[] newentryimg) {
+                private byte[] imageViewToByte (ImageView iv){
 
-                boolean insertcardata =  db.insertcardata(cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar,newentryimg);
-            }
+                    Bitmap bitmap = ((BitmapDrawable) iv.getDrawable()).getBitmap();
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    return byteArray;
+                }
 
-            private byte[] imageViewToByte(ImageView iv) {
-
-                Bitmap bitmap = ((BitmapDrawable) iv.getDrawable()).getBitmap();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                return byteArray;
-            }
         });
+    }
+
+    private boolean checkEmail(String cemailcar) {
+        return EMAIL_ADDRESS_PATTERN.matcher(cemailcar).matches();
     }
 
 
@@ -149,5 +178,13 @@ public class Addcar extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent in = new Intent(getApplicationContext(), Home.class);
+        startActivity(in);
+        finish();
     }
 }

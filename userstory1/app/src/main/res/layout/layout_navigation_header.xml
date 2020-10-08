@@ -28,24 +28,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="@string/online_rental_service"
+        android:text="@string/safe"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/viewsupporter"
         app:layout_constraintStart_toEndOf="@+id/imageprofile"/>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="12dp"
-        android:text="Tasks"
-        android:textColor="@color/green"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageprofile"
-        app:layout_constraintTop_toBottomOf="@+id/viewsupporter" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

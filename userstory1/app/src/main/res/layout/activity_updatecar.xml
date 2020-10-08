@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:background="@color/colorAccent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Update Car"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Brand"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:ems="8"
+            android:background="#fff"
+            android:padding="10dp"
+            android:hint="Brand"
+            android:inputType="textPersonName"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/model"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textSize="18dp"
+            android:hint="Model"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:ems="8"
+            android:padding="10dp"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:hint="Rent Amount"
+            android:inputType=""
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:id="@+id/amount"/>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:inputType=""
+            android:id="@+id/agency"
+            android:hint=" Agency"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:ems="8"
+            android:padding="10dp"/>
+
+
+        <EditText
+            android:id="@+id/kms"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:hint="Kms Driven"
+            android:inputType=""
+            android:padding="10dp"
+
+            android:textSize="18dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:inputType="phone"
+            android:id="@+id/phonenum"
+            android:hint="Ph.no"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:ems="8"
+            android:padding="10dp"/>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:inputType="text"
+            android:id="@+id/loc"
+            android:hint="location"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:ems="8"
+            android:padding="10dp"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:inputType="textEmailAddress"
+            android:id="@+id/emailcar"
+            android:hint="email"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:ems="8"
+            android:padding="10dp"
+            android:textSize="18dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:background="@color/white"
+                android:maxWidth="25dp"
+                android:maxHeight="@dimen/cardview_compat_inset_shadow"
+                android:text="Add Image"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+
+                android:textStyle="italic" />
+
+
+            <Button
+                android:id="@+id/addimage"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="50dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="CLICK"
+
+
+                />
+
+
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:id="@+id/upcar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:textStyle="bold"
+            android:background="#800000"
+            android:text="UPDATE"
+            android:onClick="addRecord"
+            android:textColor="#fff"/>
+        <Button
+            android:id="@+id/delcar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:textStyle="bold"
+            android:background="#800000"
+            android:text="DELETE"
+            android:onClick="addRecord"
+            android:textColor="#fff"/>
+
+        <Button
+            android:id="@+id/carreset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#800000"
+            android:ems="10"
+            android:onClick="addRecord"
+            android:text="CANCEL"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</ScrollView>
