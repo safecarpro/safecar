@@ -45,7 +45,7 @@ public class CarListAdapter extends BaseAdapter {
 
     private class ViewHolder{
         ImageView imageView;
-        TextView txtName, txtPrice;
+        TextView txtName, txtPrice,txtmodel,txtbrand,txtagency,txtkms,txtphn,txtloc,txtemail;
     }
 
     @Override
@@ -61,6 +61,14 @@ public class CarListAdapter extends BaseAdapter {
 
             holder.txtPrice = (TextView) row.findViewById(R.id.txtPrice);
             holder.imageView = (ImageView) row.findViewById(R.id.imgFood);
+            holder.txtmodel = (TextView) row.findViewById(R.id.txtmodel);
+            holder.txtPrice = (TextView) row.findViewById(R.id.txtPrice);
+            holder.txtbrand = (TextView) row.findViewById(R.id.txtbrand);
+            holder.txtagency = (TextView) row.findViewById(R.id.txtagency);
+            holder.txtkms = (TextView) row.findViewById(R.id.txtkms);
+            holder.txtphn = (TextView) row.findViewById(R.id.txtphn);
+            holder.txtloc = (TextView) row.findViewById(R.id.txtloc);
+            holder.txtemail = (TextView) row.findViewById(R.id.txtemail);
             row.setTag(holder);
         }
         else {
@@ -71,6 +79,13 @@ public class CarListAdapter extends BaseAdapter {
 
 
         holder.txtPrice.setText(car.getPrice());
+        holder.txtbrand.setText(car.getBrand());
+        holder.txtmodel.setText(car.getModel());
+        holder.txtagency.setText(car.getAgency());
+        holder.txtkms.setText(car.getkms());
+        holder.txtphn.setText(car.getPhn());
+        holder.txtloc.setText(car.getLocation());
+        holder.txtemail.setText(car.getemail());
 
         byte[] foodImage = car.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
