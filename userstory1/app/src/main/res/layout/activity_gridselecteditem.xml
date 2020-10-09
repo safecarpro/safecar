@@ -6,10 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".Gridselecteditem">
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:id="@+id/imgcar"></ImageView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="100dp"
         android:id="@+id/Br"
         android:hint="brand"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/model"
+        android:hint="model"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/price"
+        android:hint="price"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/agency"
+        android:hint="agency"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/kms"
+        android:hint="kms"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/phno"
+        android:hint="phone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/location"
+        android:hint="location"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="530dp"
+        android:layout_marginStart="100dp"
+        android:id="@+id/email"
+        android:hint="email"/>
+
 
 </RelativeLayout>

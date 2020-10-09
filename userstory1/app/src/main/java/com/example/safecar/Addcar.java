@@ -131,6 +131,8 @@ public class Addcar extends AppCompatActivity {
 
 
                     Toast.makeText(Addcar.this, "car added succesfully ", Toast.LENGTH_LONG).show();
+
+
                 }
                     byte[] newentryimg = imageViewToByte(iv);
 

@@ -28,6 +28,21 @@
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp" />
+    <TextView
+        android:id="@+id/carid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgFood"
+        android:layout_alignEnd="@+id/imgFood"
+        android:layout_alignRight="@+id/imgFood"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txtbrand"

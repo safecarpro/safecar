@@ -183,6 +183,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
 
     }
+    public byte[] carImage(String _id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] col=new String[]{COL_iv};  // your column which data u want to retrive if id is same
+        Cursor c=db.query(TABLE_CAR, col, COL_cid+"="+_id,null, null, null, null);
+        if (c.moveToFirst()) {
+            byte[] blob = c.getBlob(c.getColumnIndex(COL_iv));
+            c.close();
+            return blob;
+        }
+        c.close();
+        return null;
+    }
 
     public boolean insertdriverdata(String dname, String daddress, String dage, String dgender, String dcharge, String dbadge,  String dlocation,String dyoe,String dphno,String demail, byte[] img) {
 
