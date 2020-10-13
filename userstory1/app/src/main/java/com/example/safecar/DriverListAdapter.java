@@ -23,10 +23,6 @@ public class DriverListAdapter extends BaseAdapter {
 
     private Context context;
     private  int layout;
-
-
-
-
     private ArrayList<Driver> driversList;
 
     public DriverListAdapter(Context context, int layout, ArrayList<Driver> driversList) {
@@ -52,7 +48,7 @@ public class DriverListAdapter extends BaseAdapter {
 
     private class ViewHolder{
         ImageView imageView;
-        TextView txtName, txtPrice;
+        TextView did, dname,daddress,dage,dgender,dprice,dbadge,dlocation,dyoe,dphno,demail;
     }
 
     @Override
@@ -66,8 +62,19 @@ public class DriverListAdapter extends BaseAdapter {
             row = inflater.inflate(layout, null);
 
 
-            holder.txtPrice = (TextView) row.findViewById(R.id.txtPrice);
-            holder.imageView = (ImageView) row.findViewById(R.id.imgFood);
+            holder.did = row.findViewById(R.id.did);
+            holder.dprice = (TextView) row.findViewById(R.id.dprice);
+            holder.imageView = (ImageView) row.findViewById(R.id.imgdriver);
+            holder.dname = (TextView) row.findViewById(R.id.dname);
+            holder.daddress =  row.findViewById(R.id.daddress);
+            holder.dage = (TextView) row.findViewById(R.id.dage);
+            holder.dgender = (TextView) row.findViewById(R.id.dgender);
+            holder.dbadge = (TextView) row.findViewById(R.id.dbadge);
+            holder.dlocation = (TextView) row.findViewById(R.id.dlocation);
+            holder.dyoe = (TextView) row.findViewById(R.id.dyoe);
+            holder.dphno = (TextView) row.findViewById(R.id.dphno);
+            holder.demail = (TextView) row.findViewById(R.id.demail);
+
             row.setTag(holder);
         }
         else {
@@ -77,10 +84,21 @@ public class DriverListAdapter extends BaseAdapter {
         Driver driver = driversList.get(position);
 
 
-        holder.txtPrice.setText(driver.getPrice());
+        holder.did.setText(Integer.toString(driver.getId()));
+        holder.dname.setText(driver.getPrice());
+        holder.daddress.setText(driver.getAddress());
+        holder.dage.setText(driver.getAge());
+        holder.dgender.setText(driver.getGender());
+        holder.dprice.setText(driver.getPrice());
+        holder.dbadge.setText(driver.getBadge());
+        holder.dlocation.setText(driver.getLocation());
+        holder.dyoe.setText(driver.getYoe());
+        holder.dphno.setText(driver.getPhno());
+        holder.demail.setText(driver.getEmail());
 
-        byte[] foodImage = driver.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+
+        byte[] driverImage = driver.getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(driverImage, 0, driverImage.length);
         holder.imageView.setImageBitmap(bitmap);
 
         return row;

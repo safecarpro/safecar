@@ -55,6 +55,8 @@ public class CarView extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
                 TextView tvid = view.findViewById(R.id.carid);
                 TextView tvbrand = (TextView) view.findViewById(R.id.txtbrand);
                 TextView tvmodel = (TextView) view.findViewById(R.id.txtmodel);
@@ -94,12 +96,12 @@ public class CarView extends AppCompatActivity {
             }
         });
     }
-   // @Override
-   /* public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
         super.onBackPressed();
         Intent in = new Intent(getApplicationContext(), Home.class);
         startActivity(in);
-        finish();*/
-   // }
+        finish();
+    }
 
 }

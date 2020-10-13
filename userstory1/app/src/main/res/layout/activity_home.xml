@@ -7,78 +7,99 @@
     android:layout_height="match_parent"
     tools:context=".Home"
     android:id="@+id/drawer">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <EditText
+            android:id="@+id/location"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_marginStart="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="210dp"
-            android:id="@+id/location"
-            android:hint="       Preferred Area"
-            android:background="#009688"/>
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="#009688"
+            android:hint="       Preferred Area" />
+
         <ImageView
             android:id="@+id/locic"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="290dp"
             android:layout_marginTop="215dp"
-            android:layout_marginStart="310dp"
-            android:src="@drawable/location"
-            />
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/location" />
+
         <EditText
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="300dp"
             android:id="@+id/dates"
-            android:hint="   pickup date"
-            android:background="#009688"/>
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="300dp"
+            android:background="#009688"
+            android:hint="   pickup " />
+
         <ImageView
             android:id="@+id/datepickic"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="38dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="310dp"
-            android:layout_marginStart="135dp"
-            android:src="@drawable/cal"
-            />
+            android:src="@drawable/cal" />
+
         <EditText
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="300dp"
             android:id="@+id/datedrop"
-            android:hint="   drop off date"
-            android:background="#009688"/>
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="23dp"
+            android:layout_toEndOf="@+id/dates"
+            android:background="#009688"
+            android:hint="   drop off " />
+
         <ImageView
             android:id="@+id/datedropic"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="310dp"
-            android:layout_marginStart="310dp"
-            android:src="@drawable/cal"
-            />
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/cal" />
+
         <Button
             android:id="@+id/finddriver"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginStart="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="450dp"
+            android:layout_marginEnd="25dp"
             android:background="#3F51B5"
             android:text="Find drivers"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/findcar"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="450dp"
+
             android:background="#3F51B5"
             android:text="Find cars"
-            android:textStyle="bold"/>
-        <include
-            layout="@layout/appbar"/>
+            android:textStyle="bold" />
+
+        <include layout="@layout/appbar" />
     </RelativeLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

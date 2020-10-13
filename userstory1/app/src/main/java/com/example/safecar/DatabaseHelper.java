@@ -183,12 +183,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
 
     }
+
     public byte[] carImage(String _id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] col=new String[]{COL_iv};  // your column which data u want to retrive if id is same
         Cursor c=db.query(TABLE_CAR, col, COL_cid+"="+_id,null, null, null, null);
         if (c.moveToFirst()) {
             byte[] blob = c.getBlob(c.getColumnIndex(COL_iv));
+            c.close();
+            return blob;
+        }
+        c.close();
+        return null;
+    }
+
+    public byte[] driverImage(String _id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] col=new String[]{COL_v};  // your column which data u want to retrive if id is same
+        Cursor c=db.query(TABLE_DRIVER, col, COL_did+"="+_id,null, null, null, null);
+        if (c.moveToFirst()) {
+            byte[] blob = c.getBlob(c.getColumnIndex(COL_v));
             c.close();
             return blob;
         }

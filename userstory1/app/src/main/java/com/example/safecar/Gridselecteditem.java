@@ -54,7 +54,7 @@ public class Gridselecteditem extends AppCompatActivity {
         location.setText(slocation);
         email.setText(semail);
         byte[] bytes = db.carImage(sid);
-        imgcar.setImageBitmap(getImage(bytes));
+       imgcar.setImageBitmap(getImage(bytes));
     }
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
