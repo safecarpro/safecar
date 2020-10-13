@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,62 +16,209 @@
         android:layout_height="230dp"
         android:id="@+id/imgcar"></ImageView>
 
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="100dp"
         android:id="@+id/Br"
-        android:hint="brand"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
-        android:layout_marginStart="100dp"
+
+        android:hint="brand"
+    android:layout_marginStart="153dp"
+    android:layout_marginEnd="53dp"
+    android:layout_marginRight="40dp"
+    android:layout_marginTop="380dp"
+
+    android:textAlignment="center"
+
+    android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/Bran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="380dp"
+        android:text="Brand        :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
+
+
+    <TextView
         android:id="@+id/model"
-        android:hint="model"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="53dp"
+        android:hint="model"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="53dp"
+        android:text="Model       :"
+        android:textStyle="italic"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"
+        android:textColor="#ce1309"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:layout_marginStart="100dp"
         android:id="@+id/price"
-        android:hint="price"/>
+        android:hint="price"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
-        android:layout_marginStart="100dp"
+
+        android:text="Price         :"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginRight="43dp"
+        android:textStyle="italic"
+        android:textSize="23sp"
+        android:textColor="#ce1309"
+        android:layout_marginStart="33dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/agency"
-        android:hint="agency"/>
+        android:hint="agency"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="100dp"
+        android:id="@+id/age"
+        android:text="Agency     :"
+        android:textColor="#ce1309"
+        android:textStyle="italic"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/kms"
-        android:hint="kms"/>
+        android:hint="kms"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:layout_marginStart="100dp"
+        android:id="@+id/kmo"
+        android:text="Kms         :"
+        android:textColor="#ce1309"
+        android:textStyle="italic"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/phno"
-        android:hint="phone"/>
+        android:hint="phn"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="490dp"
-        android:layout_marginStart="100dp"
+        android:id="@+id/pho"
+        android:text="Phone.no :"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="580dp"
+        android:textColor="#ce1309"
+        android:layout_marginRight="43dp"
+        android:textStyle="italic"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"/>
+
+    <TextView
         android:id="@+id/location"
-        android:hint="location"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
-        android:layout_marginStart="100dp"
+        android:hint="location"
+        android:layout_marginEnd="41dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
+    <TextView
+        android:id="@+id/loca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location   :"
+        android:textStyle="italic"
+        android:layout_marginEnd="41dp"
+        android:textColor="#ce1309"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="43dp"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"/>
+
+    <TextView
         android:id="@+id/email"
-        android:hint="email"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="660dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="43dp"
+        android:hint="email"
+        android:textSize="23sp"
+        android:layout_marginStart="153dp"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="660dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="43dp"
+        android:text="E-mail       :"
+        android:textColor="#ce1309"
+        android:textStyle="italic"
+        android:textSize="23sp"
+        android:layout_marginStart="33dp"/>
+
+
 
 
 </RelativeLayout>
+    </ScrollView>
