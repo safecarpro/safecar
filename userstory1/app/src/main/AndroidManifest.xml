@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Gridselecteditem"></activity>
+        <activity android:name=".griddriveritem"></activity>
+        <activity android:name=".Gridselecteditem" />
         <activity android:name=".DriverView" />
         <activity android:name=".CarView" />
         <activity android:name=".Updatedriver" />

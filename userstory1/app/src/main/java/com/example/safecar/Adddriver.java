@@ -140,13 +140,13 @@ public class Adddriver extends AppCompatActivity {
                         age.requestFocus();
                         age.setError("please enter your name");
                 }
-                else if (yoe.length() == 0) {
+                  else if (yoe.length() == 0) {
                     yoe.requestFocus();
                     yoe.setError("please enter your location");
-                } else
-                    {
+                } else {
 
                     Toast.makeText(Adddriver.this, "Driver added succesfully ", Toast.LENGTH_LONG).show();
+
                 }
                 byte[] newentryimg = imageViewToByte(v);
 
