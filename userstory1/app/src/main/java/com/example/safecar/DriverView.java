@@ -47,7 +47,7 @@ public class DriverView extends AppCompatActivity {
             String yoe = cursor.getString(8);
             String phno = cursor.getString(9);
             String email = cursor.getString(10);
-            byte[] image = cursor.getBlob(11);
+            byte[] image = cursor.getBlob(12);
 
             list.add(new Driver( id,name, address, age, gender, price, badge, location, yoe, phno, email, image));
         }
