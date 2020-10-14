@@ -51,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_dphno = "phno";
     public static final String COL_demail = "email";
     public static final String COL_v = "v";
+    public static final String COL_uid = "uid";
     // create  user table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "("
             + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -95,6 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_dyoe + " TEXT,"
             + COL_dphno + " TEXT,"
             + COL_demail + " TEXT,"
+            + COL_uid + " TEXT,"
             + COL_v + " BLOB" + ")";
 
     public DatabaseHelper(@Nullable Context context) {
@@ -210,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    public boolean insertdriverdata(String dname, String daddress, String dage, String dgender, String dcharge, String dbadge,  String dlocation,String dyoe,String dphno,String demail, byte[] img) {
+    public boolean insertdriverdata(String dname, String daddress, String dage, String dgender, String dcharge, String dbadge,  String dlocation,String dyoe,String dphno,String demail,String uid, byte[] img) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -224,6 +226,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_dyoe, dyoe);
         contentValues.put(COL_dphno, dphno);
         contentValues.put(COL_demail, demail);
+        contentValues.put(COL_uid, uid);
         contentValues.put(COL_v, img);
         long result = db.insert(TABLE_DRIVER, null, contentValues);
         if (result == -1)

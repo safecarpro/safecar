@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -32,9 +33,10 @@ public class Adddriver extends AppCompatActivity {
     RadioButton selectedGender;
     Button adddriver,driverreset,addimage;
     final int REQUEST_CODE_GALLERY = 999;
+    SharedPreferences sp;
 
     ImageView v;
-    String  dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage;
+    String  dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage,uid;
 
 
     public final Pattern EMAIL_ADDRESS_PATTERN = Pattern
@@ -48,6 +50,9 @@ public class Adddriver extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddriver);
+
+        sp = getSharedPreferences("user_details",MODE_PRIVATE);
+        uid = sp.getString("uid",null);
 
 
         db = new DatabaseHelper(this);
@@ -150,17 +155,17 @@ public class Adddriver extends AppCompatActivity {
                 }
                 byte[] newentryimg = imageViewToByte(v);
 
-                Adddriver2(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe,dphno,demail, newentryimg);
+                Adddriver2(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe,dphno,demail,uid, newentryimg);
 
 
             }
 
             private void Adddriver2(String dname, String daddress, String dage, String
                     dgender, String dcharge, String dbadge, String dlocation, String dyoe,
-                                    String dphno, String demail, byte[] newentryimg) {
+                                    String dphno, String demail,String uid, byte[] newentryimg) {
 
 
-                boolean insertdriverdata = db.insertdriverdata(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe, dphno, demail, newentryimg);
+                boolean insertdriverdata = db.insertdriverdata(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe, dphno, demail,uid, newentryimg);
             }
 
             private byte[] imageViewToByte (ImageView v){

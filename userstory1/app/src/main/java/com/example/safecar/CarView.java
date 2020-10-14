@@ -96,15 +96,7 @@ public class CarView extends AppCompatActivity {
             }
         });
     }
-<<<<<<< HEAD
-    // @Override
-   /* public void onBackPressed() {
-        super.onBackPressed();
-        Intent in = new Intent(getApplicationContext(), Home.class);
-        startActivity(in);
-        finish();*/
-    // }
-=======
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -112,6 +104,6 @@ public class CarView extends AppCompatActivity {
         startActivity(in);
         finish();
     }
->>>>>>> 61c03da836b24a6ea3c738f9cf47b23628b673df
+
 
 }
