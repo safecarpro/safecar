@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_dphno = "phno";
     public static final String COL_demail = "email";
     public static final String COL_v = "v";
-    public static final String COL_uid = "uid";
+    public static final String COL_uid = "_id";
     // create  user table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "("
             + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -101,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 3);
+        super(context, DATABASE_NAME, null, 16);
 
     }
 
@@ -120,14 +120,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DRIVER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DATE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAR);
         onCreate(db);
 
+    }
+    public Cursor driverlist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_DRIVER + " WHERE " + COL_uid + " = '" + _id + "'", null);
+
+        return cursor;
     }
 
 
 
 
-    public boolean insertdata(String username, String address, String gender, String email, String phnno, String password, String location) {
+
+        public boolean insertdata(String username, String address, String gender, String email, String phnno, String password, String location) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -234,6 +245,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
 
+    }
+
+    public Cursor updatedriver() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] columns = new String[] { COL_did,COL_dname,COL_daddress,COL_dage,COL_dgender,COL_dcharge,COL_dbadges,COL_dlocation,COL_dyoe,COL_dphno,COL_demail,COL_uid,COL_v };
+        Cursor cursor = db.query(TABLE_DRIVER, columns, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
     public UserModel Authenticate(UserModel userModel) {

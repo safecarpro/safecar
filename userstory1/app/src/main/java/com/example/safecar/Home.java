@@ -98,7 +98,7 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "updated car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.updatedriver:
-                        Intent r = new Intent(Home.this, Updatedriver.class);
+                        Intent r = new Intent(Home.this, Driverview2.class);
                         startActivity(r);
                         finish();
                         Toast.makeText(Home.this, "update driver", Toast.LENGTH_SHORT).show();

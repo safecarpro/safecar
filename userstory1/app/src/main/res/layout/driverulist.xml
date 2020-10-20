@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/uimgdriver"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:id="@+id/ducharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="74dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginRight="123dp"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/duid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/duname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/duaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/duage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="Agency"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/dugender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Kms"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+
+
+    <TextView
+        android:id="@+id/dubadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="391dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:text="Location"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/dulocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="449dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:text="email"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/duyoe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/duphno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:text="Brand"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/duemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgdriver"
+        android:layout_alignEnd="@+id/imgdriver"
+        android:layout_alignRight="@+id/imgdriver"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:text="Model"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

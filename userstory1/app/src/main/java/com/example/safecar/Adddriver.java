@@ -106,6 +106,8 @@ public class Adddriver extends AppCompatActivity {
                 demail = email.getText().toString();
                 dadddriver = adddriver.getText().toString();
                 ddriverreset = driverreset.getText().toString();
+                byte[] newentryimg = imageViewToByte(v);
+
                 if (name.length() == 0) {
                     name.requestFocus();
                     name.setError("please enter your name");
@@ -153,7 +155,7 @@ public class Adddriver extends AppCompatActivity {
                     Toast.makeText(Adddriver.this, "Driver added succesfully ", Toast.LENGTH_LONG).show();
 
                 }
-                byte[] newentryimg = imageViewToByte(v);
+
 
                 Adddriver2(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe,dphno,demail,uid, newentryimg);
 

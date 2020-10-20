@@ -85,7 +85,7 @@ public class DriverListAdapter extends BaseAdapter {
 
 
         holder.did.setText(Integer.toString(driver.getId()));
-        holder.dname.setText(driver.getPrice());
+        holder.dname.setText(driver.getName());
         holder.daddress.setText(driver.getAddress());
         holder.dage.setText(driver.getAge());
         holder.dgender.setText(driver.getGender());
