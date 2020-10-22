@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -29,9 +30,10 @@ public class Addcar extends AppCompatActivity {
     EditText brand,model,amount,agency,kms,phonenum,loc,emailcar;
     Button addcar,carreset,addimage;
     final int REQUEST_CODE_GALLERY = 999;
+    SharedPreferences sp;
 
     ImageView iv;
-    String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage;
+    String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage,cuid;
     
     
     public final Pattern EMAIL_ADDRESS_PATTERN = Pattern
@@ -45,6 +47,9 @@ public class Addcar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcar);
+
+        sp = getSharedPreferences("user_details",MODE_PRIVATE);
+        cuid = sp.getString("uid",null);
 
 
         db = new DatabaseHelper(this);
@@ -131,21 +136,27 @@ public class Addcar extends AppCompatActivity {
 
 
                     Toast.makeText(Addcar.this, "car added succesfully ", Toast.LENGTH_LONG).show();
+                    byte[] newentryimg = imageViewToByte(iv);
+
+                    Addcar2(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar,cuid, newentryimg);
+
+                    Intent r = new Intent(Addcar.this, Home.class);
+                    startActivity(r);
+                    finish();
+
 
 
                 }
-                    byte[] newentryimg = imageViewToByte(iv);
 
-                    Addcar2(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar, newentryimg);
 
 
                 }
 
                 private void Addcar2 (String cbrand, String cmodel, String camount, String
-                cagency, String ckms, String cphone, String cloc, String cemailcar,
+                cagency, String ckms, String cphone, String cloc, String cemailcar,String cuid,
                 byte[] newentryimg){
 
-                    boolean insertcardata = db.insertcardata(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar, newentryimg);
+                    boolean insertcardata = db.insertcardata(cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemailcar,cuid, newentryimg);
                 }
 
                 private byte[] imageViewToByte (ImageView iv){

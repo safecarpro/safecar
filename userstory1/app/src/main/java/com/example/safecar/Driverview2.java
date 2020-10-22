@@ -24,15 +24,14 @@ public class Driverview2 extends AppCompatActivity {
     String uid;
 
 
-
     private ListView listView;
 
     private SimpleCursorAdapter adapter;
 
     final String[] from = new String[]{db.COL_did,
-            db.COL_dname, db.COL_daddress,db.COL_dage,db.COL_dgender,db.COL_dcharge,db.COL_dbadges,db.COL_dlocation,db.COL_dyoe,db.COL_dphno,db.COL_demail,db.COL_v};
+            db.COL_dname, db.COL_daddress,db.COL_dage,db.COL_dgender,db.COL_dcharge,db.COL_dbadges,db.COL_dlocation,db.COL_dyoe,db.COL_dphno,db.COL_demail};
 
-    final int[] to = new int[]{R.id.duid, R.id.duname, R.id.duaddress,R.id.duage,R.id.dugender,R.id.ducharge,R.id.dubadge, R.id.dulocation, R.id.duyoe,R.id.duphno,R.id.duemail,R.id.uimgdriver};
+    final int[] to = new int[]{R.id.duid, R.id.duname, R.id.duaddress,R.id.duage,R.id.dugender,R.id.ducharge,R.id.dubadge, R.id.dulocation, R.id.duyoe,R.id.duphno,R.id.duemail};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

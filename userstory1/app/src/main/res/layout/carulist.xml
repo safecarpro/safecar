@@ -1,90 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/imgFood"
+        app:srcCompat="@drawable/car_foreground"
+        android:id="@+id/uimgcar"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
 
     <TextView
-        android:id="@+id/txtPrice"
-        android:layout_width="61dp"
-        android:layout_height="32dp"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:text="Price"
-        android:textAlignment="center"
-        android:textColor="#ce1309"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/carid"
+        android:id="@+id/cuamount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+
+        android:layout_marginStart="183dp"
+
+        android:layout_marginTop="99dp"
+        android:layout_marginRight="-99dp"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textColor="#403F3F"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/cuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="41dp"
         android:layout_marginEnd="43dp"
         android:layout_marginRight="43dp"
-        android:text="Price"
+
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/txtbrand"
+        android:id="@+id/cubrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
-        android:layout_marginTop="106dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
+
+
+        android:layout_marginTop="39dp"
+
+        android:layout_marginStart="183dp"
+        android:layout_marginRight="-110dp"
         android:text="Brand"
         android:textAlignment="center"
-        android:textColor="#ce1309"
-        android:textSize="17sp"
-        android:visibility="gone"/>
+        android:textColor="#101010"
+        android:textSize="27sp" />
 
     <TextView
-        android:id="@+id/txtmodel"
+        android:id="@+id/cumodel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="158dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-        android:text="Model"
+
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/txtagency"
+        android:id="@+id/cuagency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="214dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
@@ -95,12 +92,12 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/txtkms"
+        android:id="@+id/cukms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="280dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
@@ -110,52 +107,55 @@
         android:textSize="17sp"
         android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/txtphn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
-        android:layout_marginTop="333dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
-        android:text="Phone.no"
-        android:textAlignment="center"
-        android:textColor="#ce1309"
-        android:textSize="17sp"
-        android:visibility="gone"/>
+
 
     <TextView
-        android:id="@+id/txtloc"
+        android:id="@+id/cuphno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="391dp"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
-        android:text="Location"
+        android:text="phno"
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/txtemail"
+        android:id="@+id/culocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgFood"
-        android:layout_alignEnd="@+id/imgFood"
-        android:layout_alignRight="@+id/imgFood"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
         android:layout_marginTop="449dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
+        android:text="location"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/cuemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
         android:text="email"
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"
         android:visibility="gone"/>
+
+
 
 </RelativeLayout>

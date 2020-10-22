@@ -46,7 +46,7 @@ public class CarView extends AppCompatActivity {
             String phn = cursor.getString(6);
             String location = cursor.getString(7);
             String email = cursor.getString(8);
-            byte[] image = cursor.getBlob(9);
+            byte[] image = cursor.getBlob(10);
 
             list.add(new Car(   id , brand, model, price, agency, kms, phn, location, email, image));
         }

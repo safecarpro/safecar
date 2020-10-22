@@ -92,7 +92,7 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "noti car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.updatecar:
-                        Intent m = new Intent(Home.this, Updatecar.class);
+                        Intent m = new Intent(Home.this, Carview2.class);
                         startActivity(m);
                         finish();
                         Toast.makeText(Home.this, "updated car", Toast.LENGTH_SHORT).show();

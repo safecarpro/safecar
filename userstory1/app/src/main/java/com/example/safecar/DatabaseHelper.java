@@ -37,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_cloc = "loation";
     public static final String COL_cemail = "email";
     public static final String COL_iv = "iv";
+    public static final String COL_cuid = "_id";
     //Driver details
     public static final String TABLE_DRIVER = "drivertable";
     public static final String COL_did = "did";
@@ -81,6 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_cphone + " TEXT,"
             + COL_cloc + " TEXT,"
             + COL_cemail + " TEXT,"
+            + COL_cuid + " TEXT,"
             + COL_iv + " BLOB" + ")";
 // CREATE DRIVER TABLE
 
@@ -101,7 +103,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 16);
+        super(context, DATABASE_NAME, null, 8
+        );
 
     }
 
@@ -130,6 +133,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_DRIVER + " WHERE " + COL_uid + " = '" + _id + "'", null);
+
+        return cursor;
+    }
+
+
+    public Cursor carlist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CAR + " WHERE " + COL_cuid + " = '" + _id + "'", null);
 
         return cursor;
     }
@@ -176,7 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //INSERT CAR DATA
 
-    public boolean insertcardata(String cbrand, String cmodel, String camount, String cagency, String ckms, String cphone, String cloc, String cemail, byte[] img) {
+    public boolean insertcardata(String cbrand, String cmodel, String camount, String cagency, String ckms, String cphone, String cloc, String cemail,String uid, byte[] img) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -188,6 +200,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_cphone, cphone);
         contentValues.put(COL_cloc, cloc);
         contentValues.put(COL_cemail, cemail);
+        contentValues.put(COL_cuid, uid);
         contentValues.put(COL_iv, img);
         long result = db.insert(TABLE_CAR, null, contentValues);
         if (result == -1)
@@ -244,6 +257,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+
+    }
+
+     //update driver data
+    public int updatedriverdata(String did, String dname, String daddress, String dage, String dgender, String dcharge, String dbadge, String dlocation, String dyoe, String dphno,String demail,String uid, byte[] img) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_did, did);
+        contentValues.put(COL_dname, dname);
+        contentValues.put(COL_daddress, daddress);
+        contentValues.put(COL_dage, dage);
+        contentValues.put(COL_dgender, dgender);
+        contentValues.put(COL_dcharge, dcharge);
+        contentValues.put(COL_dbadges, dbadge);
+        contentValues.put(COL_dlocation, dlocation);
+        contentValues.put(COL_dyoe, dyoe);
+        contentValues.put(COL_dphno, dphno);
+        contentValues.put(COL_demail, demail);
+        contentValues.put(COL_uid, uid);
+        contentValues.put(COL_v, img);
+        int i = db.update(TABLE_DRIVER, contentValues, COL_did + " = " + did, null);
+        return i;
+    }
+
+
+    //updatecardat
+
+    public int updatecardata(String cid,String cbrand, String cmodel, String camount, String cagency, String ckms, String cphone, String cloc, String cemail,String uid, byte[] img) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_cid, cid);
+        contentValues.put(COL_cbrand, cbrand);
+        contentValues.put(COL_cmodel, cmodel);
+        contentValues.put(COL_camount, camount);
+        contentValues.put(COL_cagency, cagency);
+        contentValues.put(COL_ckms, ckms);
+        contentValues.put(COL_cphone, cphone);
+        contentValues.put(COL_cloc, cloc);
+        contentValues.put(COL_cemail, cemail);
+        contentValues.put(COL_cuid, uid);
+        contentValues.put(COL_iv, img);
+        int i = db.update(TABLE_CAR, contentValues, COL_cid + " = " + cid, null);
+        return i;
 
     }
 
