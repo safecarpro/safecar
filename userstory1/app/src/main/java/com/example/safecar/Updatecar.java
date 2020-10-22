@@ -55,6 +55,26 @@ public class Updatecar extends AppCompatActivity {
         civ = findViewById(R.id.civ);
          addcimage = findViewById(R.id.addcimage);
         cupdate = findViewById(R.id.cupdate);
+        cdelete = findViewById(R.id.cdelete);
+
+
+        cdelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cid = ctid.getText().toString();
+                deletecar2(cid);
+
+                Intent r = new Intent(Updatecar.this, Home.class);
+                startActivity(r);
+                finish();
+
+
+            }
+            private void deletecar2(String cid){
+                int deletecar = db.deletecardata(cid);
+
+            }
+        });
 
 
          addcimage.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +118,7 @@ public class Updatecar extends AppCompatActivity {
 
 
 
+
         cupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,6 +136,10 @@ public class Updatecar extends AppCompatActivity {
                 byte[] newentryimg = imageViewToByte(civ);
 
                 updatecar2(cid,cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemail,uid, newentryimg);
+
+                Intent r = new Intent(Updatecar.this, Home.class);
+                startActivity(r);
+                finish();
             }
 
             private void updatecar2(String cid,String cbrand, String cmodel, String camount, String
@@ -123,6 +148,8 @@ public class Updatecar extends AppCompatActivity {
 
                 int insertcardata = db.updatecardata(cid,cbrand, cmodel, camount, cagency, ckms, cphone, cloc, cemail, uid, newentryimg);
             }
+
+
 
 
             private byte[] imageViewToByte (ImageView dtiv){
@@ -145,7 +172,7 @@ public class Updatecar extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent in = new Intent(getApplicationContext(), Driverview2.class);
+        Intent in = new Intent(getApplicationContext(), Carview2.class);
         startActivity(in);
         finish();
     }

@@ -282,6 +282,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    //delete cardata
+    public int deletecardata(String cid){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_cid, cid);
+        int i = db.delete(TABLE_CAR, COL_cid + " = " + cid, null);
+        return i;
+    }
+
+    //delete driverdata
+    public int deletedriverdata(String did){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_did, did);
+        int i = db.delete(TABLE_DRIVER, COL_did + " = " + did, null);
+        return i;
+    }
+
     //updatecardat
 
     public int updatecardata(String cid,String cbrand, String cmodel, String camount, String cagency, String ckms, String cphone, String cloc, String cemail,String uid, byte[] img) {

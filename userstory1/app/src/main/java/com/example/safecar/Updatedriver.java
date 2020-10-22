@@ -29,7 +29,7 @@ public class Updatedriver extends AppCompatActivity {
     ImageView dtiv;
     RadioButton dtgender1,dtgender2,selectmode, selectedGender;;
     RadioGroup dtgender;
-    Button addimage,dupdate;
+    Button addimage,dupdate,ddelete;
     String  did,dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage,uid;
     SharedPreferences sp;
 
@@ -62,6 +62,27 @@ public class Updatedriver extends AppCompatActivity {
         dtiv = findViewById(R.id.dtiv);
         addimage = findViewById(R.id.addimage);
         dupdate = findViewById(R.id.dupdate);
+        ddelete = findViewById(R.id.ddelete);
+
+
+
+
+        ddelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                did = dtid.getText().toString();
+                deletedriver2(did);
+
+                Intent r = new Intent(Updatedriver.this, Home.class);
+                startActivity(r);
+                finish();
+
+
+            }
+            private void deletedriver2(String cid){
+                int deletedriver = db.deletedriverdata(cid);
+            }
+        });
 
 
 
