@@ -145,7 +145,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
             android:background="@color/colorPrimaryDark"
-            android:text="CLICK"
+            android:text="UPLOAD"
+            android:ems="10"
 
 
             />

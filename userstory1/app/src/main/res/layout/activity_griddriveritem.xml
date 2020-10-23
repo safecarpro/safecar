@@ -15,71 +15,223 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/dname"
-        android:hint="name"/>
+        android:hint="name"
+        android:layout_marginStart="153dp"
+        android:textSize="23sp"/>
+    <TextView
+        android:id="@+id/Bran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="250dp"
+        android:text="Name         :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="290dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/daddress"
+        android:textSize="23sp"
         android:hint="address"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="289dp"
+        android:text="Address     :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="330dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dage"
+        android:textSize="23sp"
         android:hint="age"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="329dp"
+        android:text="Age            :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="370dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="150dp"
         android:id="@+id/dgender"
+        android:textSize="23sp"
         android:hint="gender"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="369dp"
+        android:text="gender       :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="410dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dprice"
+        android:textSize="23sp"
         android:hint="price"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="409dp"
+        android:text="Price          :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dbadge"
+        android:textSize="23sp"
         android:hint="badge"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="449dp"
+        android:text="Badge        :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="490dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dlocation"
+        android:textSize="23sp"
         android:hint="location"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="489dp"
+        android:text="Location    :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="530dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dyoe"
+        android:textSize="23sp"
         android:hint="yoe"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="529dp"
+        android:text="Experience:"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="570dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/dphno"
+        android:textSize="23sp"
         android:hint="phno"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="569dp"
+        android:text="Ph no         :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="610dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="153dp"
         android:id="@+id/demail"
+        android:textSize="23sp"
         android:hint="email"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="609dp"
+        android:text="Email        :"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="23sp" />
 
 </RelativeLayout>
