@@ -16,8 +16,8 @@ public class Login extends AppCompatActivity {
     DatabaseHelper MyDB;
 
     EditText username, password;
-    TextView register;
-    Button login;
+
+    Button login,register;
     String s_username, s_password;
     private ProgressDialog mProgress;
     SharedPreferences pref;
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
         username = (EditText) findViewById(R.id.et_uname);
         password = (EditText) findViewById(R.id.et_pass);
         login = (Button) findViewById(R.id.bt_login);
-        register = (TextView) findViewById(R.id.tv_signup);
+        register =  findViewById(R.id.tv_signup);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

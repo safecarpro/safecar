@@ -27,7 +27,22 @@
         android:layout_alignRight="@+id/imgdriver"
         android:layout_alignEnd="@+id/imgdriver"
         android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp" />
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="150dp"
+        android:text="RS/DAY"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/did"

@@ -153,11 +153,15 @@ public class Adddriver extends AppCompatActivity {
                 } else {
 
                     Toast.makeText(Adddriver.this, "Driver added succesfully ", Toast.LENGTH_LONG).show();
+                    Adddriver2(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe,dphno,demail,uid, newentryimg);
+                    Intent r = new Intent(Adddriver.this, Home.class);
+                    startActivity(r);
+                    finish();
 
                 }
 
 
-                Adddriver2(dname, daddress, dage, dgender, dcharge, dbadge, dlocation, dyoe,dphno,demail,uid, newentryimg);
+
 
 
             }
