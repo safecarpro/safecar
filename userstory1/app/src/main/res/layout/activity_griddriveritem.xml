@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -82,4 +89,31 @@
         android:id="@+id/demail"
         android:hint="email"/>
 
+    <Button
+        android:id="@+id/rentd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="750dp"
+
+        android:ems="10"
+        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
+        android:text="RENT DRIVER"
+
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/chatd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="750dp"
+        android:background="@color/colorPrimaryDark"
+        android:ems="10"
+        android:text="CHAT"
+        android:textColor="#fff"
+
+        android:textStyle="bold" />
+
 </RelativeLayout>
+</ScrollView>

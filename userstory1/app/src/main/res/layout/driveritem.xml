@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/dprice"
         android:textSize="17sp"
-        android:textColor="#ce1309"
+        android:textColor="@color/black"
         android:layout_below="@+id/imgdriver"
         android:textAlignment="center"
         android:layout_alignRight="@+id/imgdriver"
