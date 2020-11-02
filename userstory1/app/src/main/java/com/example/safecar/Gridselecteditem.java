@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Gridselecteditem extends AppCompatActivity {
-    TextView br,model,price,agency,kms,phone,location,email;
+    TextView br,model,price,agency,kms,phone,location,email,carid;
     ImageView imgcar;
     DatabaseHelper db;
     Button rentc,chat;
@@ -31,11 +31,13 @@ public class Gridselecteditem extends AppCompatActivity {
         email = (TextView)findViewById(R.id.email);
         imgcar = findViewById(R.id.imgcar);
         rentc = findViewById(R.id.rentc);
+        carid = findViewById(R.id.carid);
 
 
 
 
         Intent intent = getIntent();
+       // String carid = intent.getStringExtra("carid");
         String sid = intent.getStringExtra("carid");
         String sbrand= intent.getStringExtra("brand");
         String smodel= intent.getStringExtra("model");
@@ -49,6 +51,11 @@ public class Gridselecteditem extends AppCompatActivity {
 
 
 
+       // String cid = carid.getText().toString();
+
+
+
+        carid.setText(sid);
         br.setText(sbrand);
         model.setText(smodel);
         price.setText(sprice);
@@ -60,10 +67,20 @@ public class Gridselecteditem extends AppCompatActivity {
         byte[] bytes = db.carImage(sid);
        imgcar.setImageBitmap(getImage(bytes));
 
+
+       /* String cid = carid.getText().toString();
+        Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
+        s.putExtra("carid",cid);
+        startActivity(s);*/
+
+
        rentc.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent r = new Intent(Gridselecteditem.this, confirmcar.class);
+               String cid = carid.getText().toString();
+              // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
+               r.putExtra("carid",cid);
                startActivity(r);
 
            }

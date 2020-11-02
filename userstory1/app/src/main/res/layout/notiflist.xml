@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="29dp"
+
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#403F3F"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/nuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        />
+
+    <TextView
+        android:id="@+id/carname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="29dp"
+
+        android:layout_marginStart="153dp"
+        android:layout_marginRight="-110dp"
+        android:text="carname"
+        android:textAlignment="center"
+        android:textColor="#101010"
+        android:textSize="27sp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginStart="283dp"
+
+        android:layout_marginTop="29dp"
+        android:layout_marginRight="-110dp"
+        android:text="time"
+        android:textAlignment="center"
+        android:textColor="#101010"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/locpick"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="locpick"
+
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/locdrop"
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="28dp"
+        android:text="locdrop"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/datepic"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="datepick"
+
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/datedrop"
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="28dp"
+        android:text="datedrop"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</RelativeLayout>

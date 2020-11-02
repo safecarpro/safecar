@@ -53,6 +53,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_demail = "email";
     public static final String COL_v = "v";
     public static final String COL_uid = "_id";
+
+    //create table for conformation
+    public static final String TABLE_NOTIFICATION = "NOTIFICATION";
+    public static final String COL_nid = "nid";
+    public static final String COL_ploc = "ploc";
+    public static final String COL_dloc = "dloc";
+    public static final String COL_pdate = "pdate";
+    public static final String COL_ddate = "ddate";
+    public static final String COL_nuid = "_id";
+    public static final String COL_time = "time";
+    public static final String COL_username = "username";
+
+
+
     // create  user table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "("
             + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -87,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // CREATE DRIVER TABLE
 
     private String CREATE_DRIVER_TABLE = "CREATE TABLE " + TABLE_DRIVER + "("
-            +COL_did+ " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_did + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COL_dname + " TEXT,"
             + COL_daddress+ " TEXT,"
             + COL_dage + " TEXT,"
@@ -101,9 +115,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_uid + " TEXT,"
             + COL_v + " BLOB" + ")";
 
+    //CREATE TBALE NOTIFACTION
+
+    private String CREATE_NOTIFICATION_TABLE = "CREATE TABLE " + TABLE_NOTIFICATION + "("
+            + COL_nid + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_username + " TEXT,"
+            + COL_ploc + " TEXT,"
+            + COL_dloc + " TEXT,"
+            + COL_pdate + " TEXT,"
+            + COL_ddate + " TEXT,"
+            + COL_nuid + " TEXT,"
+            + COL_time + " date default CURRENT_TIMESTAMP " + ")";
+
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 8
+        super(context, DATABASE_NAME, null, 11
         );
 
     }
@@ -114,6 +140,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DATE_TABLE);
         db.execSQL(CREATE_CAR_TABLE);
         db.execSQL(CREATE_DRIVER_TABLE);
+        db.execSQL(CREATE_NOTIFICATION_TABLE);
     }
 
 
@@ -126,6 +153,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DRIVER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DATE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAR);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATION);
         onCreate(db);
 
     }
@@ -142,6 +170,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CAR + " WHERE " + COL_cuid + " = '" + _id + "'", null);
+
+        return cursor;
+    }
+
+    public Cursor notiflist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NOTIFICATION + " WHERE " + COL_nuid + " = '" + _id + "'", null);
 
         return cursor;
     }
@@ -185,6 +221,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
 
     }
+
+
+    //inserting data to notification table
+
+    public boolean insertnotif( String username,String spickloc, String sdroploc,String spdate, String sddate, String uid) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_username, username);
+        contentValues.put(COL_ploc, spickloc);
+        contentValues.put(COL_dloc, sdroploc);
+        contentValues.put(COL_pdate, spdate);
+        contentValues.put(COL_ddate, sddate);
+        contentValues.put(COL_nuid, uid);
+
+
+        long result = db.insert(TABLE_NOTIFICATION, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
+
 
     //INSERT CAR DATA
 

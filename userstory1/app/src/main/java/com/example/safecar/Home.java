@@ -89,6 +89,9 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "added driver", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.notification:
+                        Intent s = new Intent(Home.this, notifview.class);
+                        startActivity(s);
+                        finish();
                         Toast.makeText(Home.this, "noti car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.updatecar:
