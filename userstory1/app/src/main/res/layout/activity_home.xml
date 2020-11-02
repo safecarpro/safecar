@@ -46,6 +46,7 @@
             android:background="@drawable/btn"
             android:hint="   pickup "
             android:focusableInTouchMode="false"
+
             />
 
         <ImageView

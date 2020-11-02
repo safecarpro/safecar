@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ public class griddriveritem extends AppCompatActivity {
     TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail;
     ImageView imgdriver;
     DatabaseHelper db;
+    Button rentd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class griddriveritem extends AppCompatActivity {
         dvphno = findViewById(R.id.dphno);
         dvemail = findViewById(R.id.demail);
         imgdriver = findViewById(R.id.imgdriver);
+        rentd = findViewById(R.id.rentd);
 
         Intent intent = getIntent();
         String sid = intent.getStringExtra("did");
@@ -61,6 +65,16 @@ public class griddriveritem extends AppCompatActivity {
         dvemail.setText(semail);
         byte[] bytes = db.driverImage(sid);
         imgdriver.setImageBitmap(getImage(bytes));
+
+        rentd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent r = new Intent(griddriveritem.this, confirmdriver.class);
+                startActivity(r);
+
+            }
+        });
+
     }
     public static Bitmap getImage(byte[] image) {
 

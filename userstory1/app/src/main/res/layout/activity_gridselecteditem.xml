@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="false">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Gridselecteditem">
@@ -22,15 +23,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="40dp"
         android:hint="brand"
-    android:layout_marginStart="153dp"
-    android:layout_marginEnd="53dp"
-    android:layout_marginRight="40dp"
-    android:layout_marginTop="380dp"
 
-    android:textAlignment="center"
+        android:textAlignment="center"
 
-    android:textSize="23sp" />
+        android:textSize="23sp" />
 
     <TextView
         android:id="@+id/Bran"
@@ -195,14 +196,14 @@
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="139dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="153dp"
         android:layout_marginTop="660dp"
         android:layout_marginEnd="41dp"
         android:layout_marginRight="43dp"
         android:hint="email"
-        android:textSize="23sp"
-        android:layout_marginStart="153dp"/>
+        android:textSize="23sp" />
 
     <TextView
 
@@ -218,7 +219,33 @@
         android:layout_marginStart="33dp"/>
 
 
+    <Button
+        android:id="@+id/rentc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="750dp"
+
+        android:ems="10"
+        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
+        android:text="RENT CAR"
+
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="750dp"
+        android:background="@color/colorPrimaryDark"
+        android:ems="10"
+        android:text="CHAT"
+        android:textColor="#fff"
+
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
+
     </ScrollView>

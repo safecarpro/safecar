@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ public class Gridselecteditem extends AppCompatActivity {
     TextView br,model,price,agency,kms,phone,location,email;
     ImageView imgcar;
     DatabaseHelper db;
+    Button rentc,chat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class Gridselecteditem extends AppCompatActivity {
         location = (TextView)findViewById(R.id.location);
         email = (TextView)findViewById(R.id.email);
         imgcar = findViewById(R.id.imgcar);
+        rentc = findViewById(R.id.rentc);
 
 
 
@@ -55,6 +59,15 @@ public class Gridselecteditem extends AppCompatActivity {
         email.setText(semail);
         byte[] bytes = db.carImage(sid);
        imgcar.setImageBitmap(getImage(bytes));
+
+       rentc.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent r = new Intent(Gridselecteditem.this, confirmcar.class);
+               startActivity(r);
+
+           }
+       });
     }
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
