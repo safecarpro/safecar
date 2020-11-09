@@ -64,6 +64,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_nuid = "_id";
     public static final String COL_time = "time";
     public static final String COL_username = "username";
+    public static final String COL_scid = "scid";
+    public static final String COL_carname = "cname";
+    public static final String COL_status = "status";
+
+
+    //create table for driver conformation
+    public static final String TABLE_DNOTIFICATION = "DNOTIFICATION";
+    public static final String COL_dnid = "dnid";
+    public static final String COL_dploc = "dploc";
+    public static final String COL_ddloc = "ddloc";
+    public static final String COL_dpdate = "dpdate";
+    public static final String COL_dddate = "dddate";
+    public static final String COL_dnuid = "_id";
+    public static final String COL_dtime = "dtime";
+    public static final String COL_dusername = "dusername";
+    public static final String COL_dscid = "dcid";
+    public static final String COL_drivername = "dname";
+    public static final String COL_dstatus = "dstatus";
 
 
 
@@ -125,11 +143,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_pdate + " TEXT,"
             + COL_ddate + " TEXT,"
             + COL_nuid + " TEXT,"
-            + COL_time + " date default CURRENT_TIMESTAMP " + ")";
+            + COL_time + " date default CURRENT_TIMESTAMP, "
+            + COL_scid + " TEXT,"
+            + COL_carname + " TEXT,"
+            + COL_status + " TEXT" + ")";
+
+
+    //CREATE TBALE DNOTIFACTION
+
+    private String CREATE_DNOTIFICATION_TABLE = "CREATE TABLE " + TABLE_DNOTIFICATION + "("
+            + COL_dnid + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_dusername + " TEXT,"
+            + COL_dploc + " TEXT,"
+            + COL_ddloc + " TEXT,"
+            + COL_dpdate + " TEXT,"
+            + COL_dddate + " TEXT,"
+            + COL_dnuid + " TEXT,"
+            + COL_dtime + " date default CURRENT_TIMESTAMP, "
+            + COL_dscid + " TEXT,"
+            + COL_drivername + " TEXT,"
+            + COL_dstatus + " TEXT" + ")";
 
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 11
+        super(context, DATABASE_NAME, null, 17
         );
 
     }
@@ -141,6 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_CAR_TABLE);
         db.execSQL(CREATE_DRIVER_TABLE);
         db.execSQL(CREATE_NOTIFICATION_TABLE);
+        db.execSQL(CREATE_DNOTIFICATION_TABLE);
     }
 
 
@@ -154,6 +192,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DATE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAR);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DNOTIFICATION);
         onCreate(db);
 
     }
@@ -184,6 +223,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+    public Cursor dnotiflist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_DNOTIFICATION + " WHERE " + COL_dnuid + " = '" + _id + "'", null);
+
+        return cursor;
+    }
+
 
 
         public boolean insertdata(String username, String address, String gender, String email, String phnno, String password, String location) {
@@ -205,6 +252,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+
         //inserting data to date table
 
     public boolean insertdatedata(String datepick, String datedrop) {
@@ -225,7 +274,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //inserting data to notification table
 
-    public boolean insertnotif( String username,String spickloc, String sdroploc,String spdate, String sddate, String uid) {
+    public boolean insertnotif( String username,String spickloc, String sdroploc,String spdate, String sddate, String uid,String scid,String cname,String status) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -235,6 +284,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_pdate, spdate);
         contentValues.put(COL_ddate, sddate);
         contentValues.put(COL_nuid, uid);
+        contentValues.put(COL_scid, scid);
+        contentValues.put(COL_carname, cname);
+        contentValues.put(COL_status, status);
+
 
 
         long result = db.insert(TABLE_NOTIFICATION, null, contentValues);
@@ -245,6 +298,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    //inserting data to DRTIVER notification table
+
+    public boolean insertdnotif( String username,String spickloc, String sdroploc, String spdate, String
+            sddate,String uid, String scid,String dname,String dstatus) {
+
+        SQLiteDatabase dbd = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_dusername, username);
+        contentValues.put(COL_dploc, spickloc);
+        contentValues.put(COL_ddloc, sdroploc);
+        contentValues.put(COL_dpdate, spdate);
+        contentValues.put(COL_dddate, sddate);
+        contentValues.put(COL_dnuid, uid);
+        contentValues.put(COL_dscid, scid);
+        contentValues.put(COL_drivername, dname);
+        contentValues.put(COL_dstatus, dstatus);
+
+
+        long result = dbd.insert(TABLE_DNOTIFICATION, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+
+    }
 
 
     //INSERT CAR DATA
@@ -263,6 +342,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_cemail, cemail);
         contentValues.put(COL_cuid, uid);
         contentValues.put(COL_iv, img);
+
         long result = db.insert(TABLE_CAR, null, contentValues);
         if (result == -1)
             return false;

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,16 +13,21 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Addcar extends AppCompatActivity {
@@ -31,6 +37,7 @@ public class Addcar extends AppCompatActivity {
     Button addcar,carreset,addimage;
     final int REQUEST_CODE_GALLERY = 999;
     SharedPreferences sp;
+    ListView lvcity;
 
     ImageView iv;
     String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage,cuid;
@@ -66,6 +73,38 @@ public class Addcar extends AppCompatActivity {
         addimage =  findViewById(R.id.addimage);
         iv = findViewById(R.id.iv);
 
+        lvcity = findViewById(R.id.lvcity);
+        lvcity = new ListView(this);
+        List<String> data = new ArrayList<>();
+        data.add("calicut");
+        data.add("malapuram");
+        data.add("wayanad");
+        data.add("kochi");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+        lvcity.setAdapter(adapter);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Addcar.this);
+        builder.setCancelable(true);
+        builder.setView(lvcity);
+        final  AlertDialog dialog = builder.create();
+
+        loc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+
+
+                lvcity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        loc.setText(adapter.getItem(position));
+                        dialog.dismiss();
+
+
+                    }
+                });
+            }
+        });
+
 
         addimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +138,7 @@ public class Addcar extends AppCompatActivity {
                 cemailcar = emailcar.getText().toString();
                 caddcar = addcar.getText().toString();
                 ccarreset = carreset.getText().toString();
+                String status = "pending";
                 if (brand.length() == 0) {
                     brand.requestFocus();
                     brand.setError("please enter your brand");

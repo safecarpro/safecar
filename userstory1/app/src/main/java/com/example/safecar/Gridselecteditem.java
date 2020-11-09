@@ -79,8 +79,10 @@ public class Gridselecteditem extends AppCompatActivity {
            public void onClick(View view) {
                Intent r = new Intent(Gridselecteditem.this, confirmcar.class);
                String cid = carid.getText().toString();
+               String cname = br.getText().toString();
               // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
                r.putExtra("carid",cid);
+               r.putExtra("carname",cname);
                startActivity(r);
 
            }
@@ -90,10 +92,10 @@ public class Gridselecteditem extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
-    public void onBackPressed() {
-        super.onBackPressed();
+   /* public void onBackPressed() {
+       //super.onBackPressed();
         Intent in = new Intent(getApplicationContext(), CarView.class);
         startActivity(in);
         finish();
-    }
+    }*/
 }

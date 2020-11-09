@@ -8,11 +8,14 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.icu.text.MessagePattern.ArgType.SELECT;
 
 public class CarView extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public class CarView extends AppCompatActivity {
     ArrayList<Car> list;
     CarListAdapter adapter = null;
     DatabaseHelper db;
+    Button findall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +31,25 @@ public class CarView extends AppCompatActivity {
         setContentView(R.layout.activity_car_view);
         db=new DatabaseHelper(this);
         gridView = (GridView) findViewById(R.id.gv_car);
+        findall = findViewById(R.id.findall);
         list = new ArrayList<>();
         adapter = new CarListAdapter(this, R.layout.car_items, list);
         gridView.setAdapter(adapter);
 
-        // get all data from sqlite
+        Intent intent = getIntent();
 
-        Cursor cursor = db.getData("SELECT * FROM cartable");
+        String loc = intent.getStringExtra("location");
+
+        findall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // get location based data from sqlite
+String status = "booked";
+        Cursor cursor = db.getData("SELECT * FROM cartable WHERE loation ="+ '"'+loc+'"' + "AND cid not in (SELECT scid FROM NOTIFICATION WHERE status="+'"'+status+'"'+')');
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
@@ -51,6 +67,32 @@ public class CarView extends AppCompatActivity {
             list.add(new Car(   id , brand, model, price, agency, kms, phn, location, email, image));
         }
         adapter.notifyDataSetChanged();
+
+        findall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String status = "";
+                Cursor cursor = db.getData("SELECT * FROM cartable ");
+                list.clear();
+                while (cursor.moveToNext()) {
+                    int id = cursor.getInt(0);
+
+                    String brand = cursor.getString(1);
+                    String model = cursor.getString(2);
+                    String price = cursor.getString(3);
+                    String agency = cursor.getString(4);
+                    String kms = cursor.getString(5);
+                    String phn = cursor.getString(6);
+                    String location = cursor.getString(7);
+                    String email = cursor.getString(8);
+                    byte[] image = cursor.getBlob(10);
+
+                    list.add(new Car(   id , brand, model, price, agency, kms, phn, location, email, image));
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -92,7 +134,7 @@ public class CarView extends AppCompatActivity {
                 s.putExtra("email",semail);
 
                 startActivity(s);
-                finish();
+
             }
         });
     }
@@ -100,7 +142,7 @@ public class CarView extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent in = new Intent(getApplicationContext(), Home.class);
+       Intent in = new Intent(getApplicationContext(), Home.class);
         startActivity(in);
         finish();
     }

@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class DriverView extends AppCompatActivity {
     ArrayList<Driver> list;
     DriverListAdapter adapter = null;
     DatabaseHelper db;
+    Button alldriver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +29,18 @@ public class DriverView extends AppCompatActivity {
         setContentView(R.layout.activity_driver_view);
         db=new DatabaseHelper(this);
         gridView = (GridView) findViewById(R.id.gv_driver);
+        alldriver = findViewById(R.id.alldriver);
         list = new ArrayList<>();
         adapter = new DriverListAdapter(this,R.layout.driveritem, list);
         gridView.setAdapter(adapter);
 
+        Intent intent = getIntent();
+
+        String loc = intent.getStringExtra("location");
+        String status = "booked";
         // get all data from sqlite
 
-        Cursor cursor = db.getData("SELECT * FROM drivertable");
+        Cursor cursor = db.getData("SELECT * FROM drivertable WHERE location ="+ '"'+loc+'"' + "AND did not in (SELECT dcid FROM DNOTIFICATION WHERE dstatus="+'"'+status+'"'+')');
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
@@ -52,6 +59,33 @@ public class DriverView extends AppCompatActivity {
             list.add(new Driver( id,name, address, age, gender, price, badge, location, yoe, phno, email, image));
         }
         adapter.notifyDataSetChanged();
+
+        alldriver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Cursor cursor = db.getData("SELECT * FROM drivertable ");
+                list.clear();
+                while (cursor.moveToNext()) {
+                    int id = cursor.getInt(0);
+                    String name = cursor.getString(1);
+                    String address = cursor.getString(2);
+                    String age = cursor.getString(3);
+                    String gender = cursor.getString(4);
+                    String price = cursor.getString(5);
+                    String badge = cursor.getString(6);
+                    String location = cursor.getString(7);
+                    String yoe = cursor.getString(8);
+                    String phno = cursor.getString(9);
+                    String email = cursor.getString(10);
+                    byte[] image = cursor.getBlob(12);
+
+                    list.add(new Driver( id,name, address, age, gender, price, badge, location, yoe, phno, email, image));
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

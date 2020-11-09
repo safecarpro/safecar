@@ -24,7 +24,8 @@
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/btn"
-            android:hint="       Preferred Area" />
+            android:hint="       Preferred Area"
+            android:focusable="false"/>
 
         <ImageView
             android:id="@+id/locic"

@@ -26,13 +26,13 @@ import static android.R.*;
 
 public class confirmcar extends AppCompatActivity {
 
-    EditText pickloc,droplock,datepick,datedrop,carid;
+    EditText pickloc,droplock,datepick,datedrop,carid,carname;
     Button submit,cancel;
     private int tdate,tmonth,tyear,fdate,fmonth,fyear;
     ListView lv,lv2;
     DatabaseHelper db;
-    String  username,spickloc,sdroploc,spdate,sddate,uid,cid;
-    SharedPreferences sp;
+    String  username,spickloc,sdroploc,spdate,sddate,uid,scid,csname;
+    SharedPreferences sd;
 
 
     @Override
@@ -40,9 +40,9 @@ public class confirmcar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmcar);
 
-        sp = getSharedPreferences("user_details",MODE_PRIVATE);
-        uid = sp.getString("uid",null);
-        username  = sp.getString("username",null);
+        sd = getSharedPreferences("user_details",MODE_PRIVATE);
+        uid = sd.getString("uid",null);
+        username  = sd.getString("username",null);
 
         db = new DatabaseHelper(this);
         carid=findViewById(R.id.carid);
@@ -52,11 +52,14 @@ public class confirmcar extends AppCompatActivity {
         datedrop = findViewById(R.id.datedrop);
         lv = findViewById(R.id.listcity);
         submit = findViewById(R.id.submit);
+        carname = findViewById(R.id.carname);
 
         Intent intent = getIntent();
 
         String cid = intent.getStringExtra("carid");
+        final String cname = intent.getStringExtra("carname");
         carid.setText(cid);
+        carname.setText(cname);
 
         lv = new ListView(this);
         List<String> data = new ArrayList<>();
@@ -194,8 +197,12 @@ public class confirmcar extends AppCompatActivity {
                 sdroploc=droplock.getText().toString();
                 spdate=datepick.getText().toString();
                 sddate=datedrop.getText().toString();
+                scid=carid.getText().toString();
+                csname=carname.getText().toString();
+                String status = "booked";
 
-                Addnotif(username,spickloc, sdroploc, spdate, sddate, uid);
+
+                Addnotif(username,spickloc, sdroploc, spdate, sddate, uid,scid,csname,status);
                 alert(view);
                 
                /* Intent r = new Intent(confirmcar.this, Home.class);
@@ -207,9 +214,9 @@ public class confirmcar extends AppCompatActivity {
             }
 
             private void Addnotif (String username,String spickloc, String sdroploc, String spdate, String
-                    sddate,String uid){
+                    sddate,String uid, String scid,String csname,String status){
 
-                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate, uid);
+                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate, uid, scid,csname,status);
             }
         });
 

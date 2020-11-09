@@ -36,7 +36,7 @@ public class griddriveritem extends AppCompatActivity {
         dvemail = findViewById(R.id.demail);
         imgdriver = findViewById(R.id.imgdriver);
         rentd = findViewById(R.id.rentd);
-        driverid = findViewById(R.id.driverid);
+        driverid = findViewById(R.id.drivid);
 
         Intent intent = getIntent();
         String sid = intent.getStringExtra("did");
@@ -71,6 +71,11 @@ public class griddriveritem extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent r = new Intent(griddriveritem.this, confirmdriver.class);
+                String drivid = driverid.getText().toString();
+                String drivname = dvname.getText().toString();
+                // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
+                r.putExtra("drivid",drivid);
+                r.putExtra("drivname",drivname);
                 startActivity(r);
 
             }

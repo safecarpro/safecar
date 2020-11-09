@@ -8,37 +8,35 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class notifview extends AppCompatActivity {
-
+public class notifdriview extends AppCompatActivity {
 
     DatabaseHelper db;
     SharedPreferences cu;
-    String nuid,username;
+    String dnuid,username;
 
     private ListView listView;
     private SimpleCursorAdapter adapter;
 
-    final String[] from = new String[]{db.COL_nid,db.COL_username,
-            db.COL_ploc, db.COL_dloc,db.COL_pdate,db.COL_ddate,db.COL_time,db.COL_carname};
+    final String[] from = new String[]{db.COL_dnid,db.COL_dusername,
+            db.COL_dploc, db.COL_ddloc,db.COL_dpdate,db.COL_dddate,db.COL_dtime,db.COL_drivername};
 
-    final int[] to = new int[]{R.id.nuid,R.id.username,  R.id.locpick,R.id.locdrop,R.id.datepic,R.id.datedrop, R.id.time,R.id.carname};
-
+    final int[] to = new int[]{R.id.nuid,R.id.username,  R.id.locpick,R.id.locdrop,R.id.datepic,R.id.datedrop, R.id.time,R.id.driver};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifview);
+        setContentView(R.layout.activity_notifdriview);
 
         cu = getSharedPreferences("user_details",MODE_PRIVATE);
-        nuid = cu.getString("uid",null);
+        dnuid = cu.getString("uid",null);
         username = cu.getString("username", null);
 
         db = new DatabaseHelper(this);
-        Cursor cursor = db.notiflist(nuid);
+        Cursor cursor = db.dnotiflist(dnuid);
 
-        listView = findViewById(R.id.notiflv);
+        listView = findViewById(R.id.notifdlv);
 
-        adapter = new SimpleCursorAdapter(this,R.layout.notiflist, cursor, from, to,0);
+        adapter = new SimpleCursorAdapter(this,R.layout.notifdrivlist, cursor, from, to,0);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);

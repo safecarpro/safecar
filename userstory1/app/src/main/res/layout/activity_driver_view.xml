@@ -1,7 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightwhite">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="220dp"
+        android:text=" all driver"
+        android:id="@+id/alldriver"
+        android:textSize="10dp"/>
 
 
 
@@ -9,9 +19,17 @@
         android:id="@+id/gv_driver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"
-        android:horizontalSpacing="4dp"
-        android:verticalSpacing="4dp"
+        android:layout_marginTop="50dp"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:fadingEdge="vertical"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:columnWidth="90dp"
+        android:padding="5dp"
+        android:verticalSpacing="10dp"
         >
     </GridView>
 
