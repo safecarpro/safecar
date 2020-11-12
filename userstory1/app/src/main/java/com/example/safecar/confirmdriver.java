@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,15 +22,25 @@ import java.util.List;
 
 public class confirmdriver extends AppCompatActivity {
 
-    EditText dpickloc,ddroplock,ddatepick,ddatedrop;
+    EditText dpickloc,ddroplock,ddatepick,ddatedrop,drivid,dname,duser;
     Button dsubmit,dcancel;
     private int tdate,tmonth,tyear,fdate,fmonth,fyear;
     ListView lv,lv2;
+    String  username,spickloc,sdroploc,spdate,sddate,uid,scid,drivername;
+    DatabaseHelper db;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmdriver);
+
+        db = new DatabaseHelper(this);
+
+
+        sp = getSharedPreferences("user_details",MODE_PRIVATE);
+        uid = sp.getString("uid",null);
+        username  = sp.getString("username",null);
 
         ddatepick = findViewById(R.id.ddatepick);
         dpickloc = findViewById(R.id.dpickloc);
@@ -37,6 +48,21 @@ public class confirmdriver extends AppCompatActivity {
         ddatedrop = findViewById(R.id.ddatedrop);
         lv2 = findViewById(R.id.listcity2);
         dsubmit = findViewById(R.id.dsubmit);
+        drivid = findViewById(R.id.drivid);
+        dname = findViewById(R.id.drivname);
+       // dudid = findViewById(R.id.duid);
+        //duser = findViewById(R.id.dusername);
+
+
+        Intent intent = getIntent();
+
+        String did = intent.getStringExtra("drivid");
+        final String drivname = intent.getStringExtra("drivname");
+        drivid.setText(did);
+        dname.setText(drivname);
+        //duser.setText(dusername);
+
+
 
         lv2 = new ListView(this);
         List<String> data = new ArrayList<>();
@@ -166,8 +192,17 @@ public class confirmdriver extends AppCompatActivity {
 
                 {
 
+                    spickloc=dpickloc.getText().toString();
+                    sdroploc=ddroplock.getText().toString();
+                    spdate=ddatepick.getText().toString();
+                    sddate=ddatedrop.getText().toString();
+                    scid=drivid.getText().toString();
+                    drivername=dname.getText().toString();
+                    String dstatus = "booked";
 
 
+                    db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, uid, scid,drivername,dstatus);
+                   // Adddnotif(username,spickloc, sdroploc, spdate, sddate, uid,scid);
                     dalert(view);
 
                /* Intent r = new Intent(confirmcar.this, Home.class);
@@ -176,7 +211,14 @@ public class confirmdriver extends AppCompatActivity {
                 }
 
             }
-        });
+
+            private void Adddnotif (String username,String spickloc, String sdroploc, String spdate, String
+                    sddate,String uid, String scid,String dname,String dstatus) {
+
+                boolean insertnotif = db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, uid, scid,dname,dstatus);
+            }
+
+            });
 
 
     }

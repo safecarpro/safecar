@@ -69,6 +69,7 @@ public class Login extends AppCompatActivity {
                     mProgress.dismiss();
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("uid", currentUser.user_id);
+                    editor.putString("username",currentUser.username);
                     editor.commit();
                     Intent goToDash = new Intent(Login.this, Home.class);
                     startActivity(goToDash);

@@ -20,6 +20,10 @@
         android:icon="@drawable/notification"
         android:title="@string/notification" />
 
+    <item android:id="@+id/dnotification"
+        android:icon="@drawable/notification"
+        android:title="@string/dnotification" />
+
     <item android:id="@+id/updatecar"
         android:icon="@drawable/tools"
         android:title="@string/updatecar" />

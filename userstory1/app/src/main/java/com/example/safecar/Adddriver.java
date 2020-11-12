@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,10 +13,13 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -23,6 +27,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Adddriver extends AppCompatActivity {
@@ -34,6 +40,7 @@ public class Adddriver extends AppCompatActivity {
     Button adddriver,driverreset,addimage;
     final int REQUEST_CODE_GALLERY = 999;
     SharedPreferences sp;
+    ListView lvcity;
 
     ImageView v;
     String  dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage,uid;
@@ -70,6 +77,39 @@ public class Adddriver extends AppCompatActivity {
         driverreset= findViewById(R.id.driverreset);
         addimage =  findViewById(R.id.addimage);
         v = findViewById(R.id.v);
+
+
+        lvcity = findViewById(R.id.lvcity);
+        lvcity = new ListView(this);
+        List<String> data = new ArrayList<>();
+        data.add("calicut");
+        data.add("malapuram");
+        data.add("wayanad");
+        data.add("kochi");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+        lvcity.setAdapter(adapter);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Adddriver.this);
+        builder.setCancelable(true);
+        builder.setView(lvcity);
+        final  AlertDialog dialog = builder.create();
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+
+
+                lvcity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        location.setText(adapter.getItem(position));
+                        dialog.dismiss();
+
+
+                    }
+                });
+            }
+        });
 
 
         addimage.setOnClickListener(new View.OnClickListener() {

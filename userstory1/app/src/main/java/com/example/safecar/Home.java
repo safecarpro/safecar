@@ -8,21 +8,27 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Home extends AppCompatActivity  {
 
@@ -35,6 +41,7 @@ public class Home extends AppCompatActivity  {
     ImageView dateic1,dateic2,locic;
     private int mdate,mmonth,myear;
     String datepick,datedrop;
+    ListView lvcity;
 
 
 
@@ -56,6 +63,20 @@ public class Home extends AppCompatActivity  {
         dateic2=findViewById(R.id.datedropic);
         locic=findViewById(R.id.locic);
 
+        lvcity = findViewById(R.id.lvcity);
+        lvcity = new ListView(this);
+        List<String> data = new ArrayList<>();
+        data.add("calicut");
+        data.add("malapuram");
+        data.add("wayanad");
+        data.add("kochi");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+        lvcity.setAdapter(adapter);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+        builder.setCancelable(true);
+        builder.setView(lvcity);
+        final  AlertDialog dialog = builder.create();
+
 
         setSupportActionBar(tb);
         ActionBar actionBar = getSupportActionBar();
@@ -63,6 +84,23 @@ public class Home extends AppCompatActivity  {
         actionBar.setHomeAsUpIndicator(R.drawable.menuicon);
 
 
+        loc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+
+
+                lvcity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        loc.setText(adapter.getItem(position));
+                        dialog.dismiss();
+                       
+
+                    }
+                });
+            }
+        });
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -89,6 +127,15 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "added driver", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.notification:
+                        Intent s = new Intent(Home.this, notifview.class);
+                        startActivity(s);
+                        finish();
+                        Toast.makeText(Home.this, "noti car", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.dnotification:
+                        Intent d = new Intent(Home.this, notifdriview.class);
+                        startActivity(d);
+                        finish();
                         Toast.makeText(Home.this, "noti car", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.updatecar:
@@ -167,19 +214,36 @@ public class Home extends AppCompatActivity  {
                         finish();
                     }
                 }, Toast.LENGTH_LONG);
+
 */
-Intent i = new Intent(Home.this,CarView.class);
-startActivity(i);
-finish();
+                if (loc.length() == 0) {
+                    loc.requestFocus();
+                    loc.setError("please select your city");
+                }
+                else {
+                    Intent r = new Intent(Home.this, CarView.class);
+                    String location = loc.getText().toString();
+                    r.putExtra("location", location);
+                    startActivity(r);
+                }
             }
         });
 
 driver.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Intent a = new Intent(Home.this,DriverView.class);
-        startActivity(a);
-        finish();
+        if (loc.length() == 0) {
+            loc.requestFocus();
+            loc.setError("please select your city");
+        }
+        else {
+
+            Intent a = new Intent(Home.this, DriverView.class);
+            String location = loc.getText().toString();
+            a.putExtra("location", location);
+            startActivity(a);
+        }
+        //finish();
     }
 });
 

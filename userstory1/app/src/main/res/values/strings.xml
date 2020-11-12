@@ -5,6 +5,7 @@
     <string name="rentdriver">Rent Driver</string>
     <string name="adddriver">Add Driver</string>
     <string name="notification">Notification</string>
+    <string name="dnotification">Dnotification</string>
     <string name="updatecar">Update Car</string>
     <string name="updatedriver">Update Driver</string>
     <string name="about">About</string>

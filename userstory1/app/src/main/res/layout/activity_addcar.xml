@@ -103,7 +103,8 @@
         android:background="@drawable/btn"
         android:ems="8"
         android:elevation="5dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:focusable="false"/>
 
     <EditText
         android:layout_width="250dp"

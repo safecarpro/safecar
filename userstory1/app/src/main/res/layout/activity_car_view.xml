@@ -1,15 +1,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightwhite"
+    xmlns:marandroid="http://schemas.android.com/apk/res-auto">
 
 
-    <GridView
-        android:id="@+id/gv_car"
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="220dp"
+        android:text=" all cars"
+        android:id="@+id/findall">
+
+    </Button>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="638dp"
-        android:horizontalSpacing="4dp"
-        android:numColumns="3"
-        android:verticalSpacing="4dp"></GridView>
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
+        <GridView
+            android:id="@+id/gv_car"
+            android:layout_width="match_parent"
+            android:layout_height="638dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/white"
+
+
+            android:fadingEdge="vertical"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:columnWidth="90dp"
+            android:padding="5dp"
+            android:verticalSpacing="10dp"
+
+            >
+
+        </GridView>
+
+    </LinearLayout>
 </RelativeLayout>

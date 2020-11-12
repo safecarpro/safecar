@@ -3,16 +3,22 @@ package com.example.safecar;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class registration extends AppCompatActivity {
@@ -27,6 +33,7 @@ public class registration extends AppCompatActivity {
     RadioGroup gender;
     RadioButton selectedGender;
     Button btnAddData,clear;
+    ListView lvcity;
 
     public final Pattern EMAIL_ADDRESS_PATTERN = Pattern
             .compile("[a-zA-Z0-9+._%-+]{1,256}" + "@"
@@ -49,6 +56,42 @@ public class registration extends AppCompatActivity {
         gender=(RadioGroup) findViewById(R.id.radioGender);
         btnAddData = (Button) findViewById(R.id.bt_register);
        clear = (Button) findViewById(R.id.reset);
+       // lvcity =  findViewById(R.id.lvcity);
+
+        lvcity = findViewById(R.id.lvcity);
+        lvcity = new ListView(this);
+        List<String> data = new ArrayList<>();
+        data.add("calicut");
+        data.add("malapuram");
+        data.add("wayanad");
+        data.add("kochi");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+        lvcity.setAdapter(adapter);
+        AlertDialog.Builder builder = new AlertDialog.Builder(registration.this);
+        builder.setCancelable(true);
+        builder.setView(lvcity);
+        final  AlertDialog dialog = builder.create();
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+
+
+                lvcity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        location.setText(adapter.getItem(position));
+                        dialog.dismiss();
+
+
+                    }
+                });
+            }
+        });
+
+
+
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

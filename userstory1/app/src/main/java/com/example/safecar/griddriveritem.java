@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class griddriveritem extends AppCompatActivity {
 
-    TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail;
+    TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail,driverid;
     ImageView imgdriver;
     DatabaseHelper db;
     Button rentd;
@@ -36,6 +36,7 @@ public class griddriveritem extends AppCompatActivity {
         dvemail = findViewById(R.id.demail);
         imgdriver = findViewById(R.id.imgdriver);
         rentd = findViewById(R.id.rentd);
+        driverid = findViewById(R.id.drivid);
 
         Intent intent = getIntent();
         String sid = intent.getStringExtra("did");
@@ -52,7 +53,7 @@ public class griddriveritem extends AppCompatActivity {
         Bitmap bitmap = intent.getParcelableExtra("dbitmap");
 
 
-
+        driverid.setText(sid);
         dvname.setText(sname);
         dvaddress.setText(saddress);
         dvage.setText(sage);
@@ -66,10 +67,15 @@ public class griddriveritem extends AppCompatActivity {
         byte[] bytes = db.driverImage(sid);
         imgdriver.setImageBitmap(getImage(bytes));
 
-        rentd.setOnClickListener(new View.OnClickListener() {
+        rentd.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent r = new Intent(griddriveritem.this, confirmdriver.class);
+                String drivid = driverid.getText().toString();
+                String drivname = dvname.getText().toString();
+                // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
+                r.putExtra("drivid",drivid);
+                r.putExtra("drivname",drivname);
                 startActivity(r);
 
             }
