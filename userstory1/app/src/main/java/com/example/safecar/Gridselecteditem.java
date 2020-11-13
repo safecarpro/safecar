@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Gridselecteditem extends AppCompatActivity {
-    TextView br,model,price,agency,kms,phone,location,email,carid;
+    TextView br,model,price,agency,kms,phone,location,email,carid,carreview;
     ImageView imgcar;
     DatabaseHelper db;
     Button rentc,chat;
@@ -32,6 +32,7 @@ public class Gridselecteditem extends AppCompatActivity {
         imgcar = findViewById(R.id.imgcar);
         rentc = findViewById(R.id.rentc);
         carid = findViewById(R.id.carid);
+        carreview = findViewById(R.id.car_review);
 
 
 
@@ -72,6 +73,21 @@ public class Gridselecteditem extends AppCompatActivity {
         Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
         s.putExtra("carid",cid);
         startActivity(s);*/
+
+       carreview.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent rs = new Intent(Gridselecteditem.this, Rating.class);
+               String cid = carid.getText().toString();
+               String username = br.getText().toString();
+               // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
+               rs.putExtra("carid",cid);
+
+               startActivity(rs);
+           }
+       });
+
+
 
 
        rentc.setOnClickListener(new View.OnClickListener() {

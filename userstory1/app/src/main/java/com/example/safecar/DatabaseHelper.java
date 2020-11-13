@@ -84,6 +84,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_dstatus = "dstatus";
 
 
+    //table car review
+
+    public static final String TABLE_CREVIEW = "CREVIEW";
+    public static final String COL_rid = "rid";
+    public static final String COL_carid = "cid";
+    public static final String COL_user = "user";
+    public static final String COL_creview = "creview";
+
+
+    //table driver review
+
+    public static final String TABLE_DREVIEW = "DREVIEW";
+    public static final String COL_rdid = "rdid";
+    public static final String COL_driverid = "did";
+    public static final String COL_duser = "user";
+    public static final String COL_dreview = "dreview";
+
+
 
     // create  user table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "("
@@ -164,6 +182,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_drivername + " TEXT,"
             + COL_dstatus + " TEXT" + ")";
 
+    //create table car review
+
+    private String CREATE_CREVIEW = "CREATE TABLE " + TABLE_CREVIEW + "("
+            + COL_rid + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_carid + " TEXT,"
+            + COL_user + " TEXT,"
+            + COL_creview + " TEXT" + ")";
+
+
+    //create table driver review
+
+    private String CREATE_DREVIEW = "CREATE TABLE " + TABLE_DREVIEW + "("
+            + COL_rdid + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COL_driverid + " TEXT,"
+            + COL_duser + " TEXT,"
+            + COL_dreview + " TEXT" + ")";
+
+
+
     public DatabaseHelper(@Nullable Context context) {
 
         super(context, DATABASE_NAME, null, 17
@@ -179,6 +216,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DRIVER_TABLE);
         db.execSQL(CREATE_NOTIFICATION_TABLE);
         db.execSQL(CREATE_DNOTIFICATION_TABLE);
+        db.execSQL(CREATE_CREVIEW);
+        db.execSQL(CREATE_DREVIEW);
     }
 
 
@@ -193,6 +232,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAR);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATION);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DNOTIFICATION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CREVIEW);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DREVIEW);
         onCreate(db);
 
     }
@@ -271,6 +312,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+
+    //insert car review data
+
+    public boolean creview( String carid2,String username, String rating) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_carid, carid2);
+        contentValues.put(COL_user, username);
+        contentValues.put(COL_creview, rating);
+
+
+
+
+        long result = db.insert(TABLE_CREVIEW, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
+
+
+    //*************insert driver review data***************
+
+    public boolean dreview( String driverid2,String username, String rating) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_carid, driverid2);
+        contentValues.put(COL_user, username);
+        contentValues.put(COL_creview, rating);
+
+
+
+
+        long result = db.insert(TABLE_DREVIEW, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+
+    }
 
     //inserting data to notification table
 
