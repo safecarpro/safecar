@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rating_driver"></activity>
-        <activity android:name=".Rating" />
-        <activity android:name=".notifdriview" />
+        <activity android:name=".notifdriview"></activity>
         <activity android:name=".notifview" />
         <activity android:name=".confirmdriver" />
         <activity android:name=".confirmcar" />

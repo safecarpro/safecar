@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,24 +13,10 @@
     android:layout_height="match_parent"
     tools:context=".griddriveritem">
 
-    <ScrollView
-        android:layout_width="400dp"
-        android:layout_height="680dp"
-        android:fillViewport="true">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn"
-            android:layout_margin="2dp"
-            android:padding="5dp"
-            >
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:id="@+id/imgdriver"></ImageView>
-
 
     <TextView
         android:id="@+id/drivid"
@@ -42,41 +35,39 @@
         android:visibility="gone"/>
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
-        android:layout_marginStart="40dp"
-        android:drawableLeft="@drawable/person2"
+        android:layout_marginStart="100dp"
         android:id="@+id/dname"
         android:hint="name"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="290dp"
         android:layout_marginStart="100dp"
         android:id="@+id/daddress"
         android:hint="address"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="330dp"
         android:layout_marginStart="100dp"
         android:id="@+id/dage"
         android:hint="age"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
+        android:layout_marginTop="370dp"
         android:layout_marginStart="100dp"
         android:id="@+id/dgender"
         android:hint="gender"/>
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:layout_marginStart="100dp"
         android:id="@+id/dprice"
-        android:drawableLeft="@drawable/dollar"
         android:hint="price"/>
     <TextView
         android:layout_width="wrap_content"
@@ -86,29 +77,16 @@
         android:id="@+id/dbadge"
         android:hint="badge"/>
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginStart="40dp"
-        android:drawableLeft="@drawable/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp"
+        android:layout_marginStart="100dp"
         android:id="@+id/dlocation"
         android:hint="location"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Details  "
-                android:textStyle="bold"
-                android:layout_marginEnd="41dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="360dp"
-                android:layout_marginRight="43dp"
-                android:textSize="25sp"
-                android:layout_marginStart="33dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="530dp"
         android:layout_marginStart="100dp"
         android:id="@+id/dyoe"
         android:hint="yoe"/>
@@ -126,37 +104,17 @@
         android:layout_marginStart="100dp"
         android:id="@+id/demail"
         android:hint="email"/>
-            <TextView
-
-                android:id="@+id/driver_review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="890dp"
-                android:layout_marginEnd="41dp"
-                android:layout_marginRight="43dp"
-                android:text="Write a Review...       "
-                android:textColor="#424040"
-                android:textSize="23sp"
-                android:textStyle="normal"
-                android:focusable="false"/>
-
-
-
-</RelativeLayout>
-</ScrollView>
 
     <Button
         android:id="@+id/rentd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="680dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="750dp"
 
         android:ems="10"
         android:textStyle="bold"
         android:background="@color/colorPrimaryDark"
-        android:text="RENT CAR"
+        android:text="RENT DRIVER"
 
         android:textColor="#fff"/>
 
@@ -165,12 +123,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="750dp"
         android:background="@color/colorPrimaryDark"
-        android:drawableStart="@drawable/chat"
         android:ems="10"
         android:text="CHAT"
         android:textColor="#fff"
 
         android:textStyle="bold" />
+
 </RelativeLayout>
+</ScrollView>

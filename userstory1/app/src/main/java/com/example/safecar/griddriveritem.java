@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class griddriveritem extends AppCompatActivity {
 
-    TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail,driverid,driver_review;
+    TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail,driverid;
     ImageView imgdriver;
     DatabaseHelper db;
     Button rentd;
@@ -37,7 +37,6 @@ public class griddriveritem extends AppCompatActivity {
         imgdriver = findViewById(R.id.imgdriver);
         rentd = findViewById(R.id.rentd);
         driverid = findViewById(R.id.drivid);
-        driver_review = findViewById(R.id.driver_review);
 
         Intent intent = getIntent();
         String sid = intent.getStringExtra("did");
@@ -67,14 +66,6 @@ public class griddriveritem extends AppCompatActivity {
         dvemail.setText(semail);
         byte[] bytes = db.driverImage(sid);
         imgdriver.setImageBitmap(getImage(bytes));
-
-        driver_review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent rs = new Intent(griddriveritem.this, Rating.class);
-                startActivity(rs);
-            }
-        });
 
         rentd.setOnClickListener(new  View.OnClickListener() {
             @Override
