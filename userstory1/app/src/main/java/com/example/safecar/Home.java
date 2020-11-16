@@ -84,6 +84,7 @@ public class Home extends AppCompatActivity  {
         actionBar.setHomeAsUpIndicator(R.drawable.menuicon);
 
 
+
         loc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

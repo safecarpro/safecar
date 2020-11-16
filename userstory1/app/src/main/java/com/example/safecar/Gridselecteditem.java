@@ -1,6 +1,8 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,11 +17,13 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+
 public class Gridselecteditem extends AppCompatActivity {
     TextView br,model,price,agency,kms,phone,location,email,carid,carreview;
     ImageView imgcar;
     DatabaseHelper db;
     Button rentc,chat1,chat2;
+   private Toolbar tb;
 
   //*********************review car***************
     private ListView listView;
@@ -51,6 +55,7 @@ public class Gridselecteditem extends AppCompatActivity {
         carid = findViewById(R.id.carid);
         carreview = findViewById(R.id.car_review);
         chat1 = findViewById(R.id.chat);
+        tb = findViewById(R.id.appbar);
 
 
 
@@ -81,6 +86,9 @@ public class Gridselecteditem extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
 
 
 
@@ -150,6 +158,9 @@ public class Gridselecteditem extends AppCompatActivity {
            }
        });
     }
+
+
+
     public static Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
