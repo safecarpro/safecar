@@ -44,55 +44,134 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="25dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="230dp"
         android:layout_marginStart="40dp"
         android:drawableLeft="@drawable/person2"
+        android:textColor="@color/black"
         android:id="@+id/dname"
+        android:textSize="23sp"
         android:hint="name"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="410dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/daddress"
+        android:textSize="23sp"
+        android:layout_marginStart="170dp"
         android:hint="address"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="410dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="ADDRESS       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="490dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/dage"
+        android:textSize="23sp"
+        android:layout_marginStart="170dp"
         android:hint="age"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
-        android:layout_marginStart="100dp"
-        android:id="@+id/dgender"
-        android:hint="gender"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="490dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="AGE       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
+
+            <TextView
+                android:id="@+id/dgender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="530dp"
+                android:textSize="23sp"
+                android:layout_marginStart="170dp"
+                android:hint="gender" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="530dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="GENDER       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
     <TextView
         android:layout_width="80dp"
         android:layout_height="25dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="260dp"
         android:layout_marginStart="40dp"
+        android:textSize="23sp"
         android:id="@+id/dprice"
+        android:textColor="@color/black"
         android:drawableLeft="@drawable/dollar"
         android:hint="price"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/dbadge"
+        android:textSize="23sp"
+        android:layout_marginStart="170dp"
         android:hint="badge"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="450dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="BADGE       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="330dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
         android:layout_marginStart="40dp"
         android:drawableLeft="@drawable/location"
+        android:layout_marginEnd="41dp"
+        android:textSize="23sp"
         android:id="@+id/dlocation"
+        android:textColor="@color/black"
         android:hint="location"/>
+
+            <ImageView
+                android:id="@+id/hline"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/hline"
+
+                android:textStyle="bold"
+                android:layout_marginEnd="0dp"
+
+                android:layout_marginTop="330dp"
+                android:layout_marginRight="0dp"
+
+                android:layout_marginStart="33dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,31 +187,73 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="660dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginTop="665dp"
+
         android:id="@+id/dyoe"
+        android:textSize="23sp"
+        android:layout_marginStart="170dp"
         android:hint="yoe"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="668dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="YOE       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="570dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/dphno"
+        android:textSize="23sp"
+        android:layout_marginStart="170dp"
         android:hint="phno"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="570dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="PHNO       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="610dp"
-        android:layout_marginStart="100dp"
+
         android:id="@+id/demail"
+        android:textSize="18sp"
+        android:layout_marginStart="170dp"
         android:hint="email"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="610dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginRight="53dp"
+                android:text="EMAIL       "
+                android:textStyle="normal"
+                android:textSize="23sp"
+                android:layout_marginStart="33dp"
+                android:textColor="#423F3F"/>
             <TextView
 
                 android:id="@+id/driver_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="33dp"
-                android:layout_marginTop="890dp"
+                android:layout_marginTop="790dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="43dp"
                 android:text="Write a Review...       "
@@ -150,7 +271,8 @@
 
 
 
-</RelativeLayout>
+
+        </RelativeLayout>
 </ScrollView>
 
     <Button

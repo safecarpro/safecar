@@ -7,6 +7,7 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:hint="carid"
+        android:visibility="gone"
         android:layout_marginTop="15dp"
         android:layout_marginStart="215dp"
         />

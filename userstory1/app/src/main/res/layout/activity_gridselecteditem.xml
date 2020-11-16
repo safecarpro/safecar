@@ -5,6 +5,7 @@
     tools:context=".Gridselecteditem"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
 <ScrollView
     android:layout_width="400dp"
     android:layout_height="680dp"
@@ -21,14 +22,14 @@
         >
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:id="@+id/imgcar"
-        android:elevation="-5dp">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/imgcar"
+            android:layout_width="391dp"
+            android:layout_height="223dp"
+            android:elevation="-5dp">
 
+        </ImageView>
 
         <TextView
             android:id="@+id/Br"
@@ -113,7 +114,7 @@
         android:drawableLeft="@drawable/dollar"
         android:layout_marginTop="230dp"
         android:layout_marginRight="43dp"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textColor="@color/black"
         android:layout_marginStart="55dp"/>
 
@@ -215,7 +216,7 @@
             android:drawableLeft="@drawable/location"
             android:hint="location"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <ImageView
             android:id="@+id/hline"
@@ -273,10 +274,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="33dp"
-            android:layout_marginTop="890dp"
+            android:layout_marginTop="760dp"
             android:layout_marginEnd="41dp"
             android:layout_marginRight="43dp"
             android:text="Write a Review...       "
+            
             android:textColor="#424040"
             android:textSize="23sp"
             android:textStyle="normal"
@@ -293,19 +295,11 @@
 </ScrollView>
 
 
-
-
-
-
-
-
-
-
     <Button
         android:id="@+id/rentc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="565dp"
         android:layout_marginStart="10dp"
 
         android:ems="10"
@@ -320,7 +314,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="565dp"
         android:background="@color/colorPrimaryDark"
         android:drawableStart="@drawable/chat"
         android:ems="10"

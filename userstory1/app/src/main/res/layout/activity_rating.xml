@@ -62,6 +62,7 @@
     android:layout_marginTop="500dp"
     android:gravity="center"
     android:layout_centerHorizontal="true"
+        android:visibility="gone"
     android:hint="CID"
     android:id="@+id/CARID"/>
     <TextView
@@ -70,6 +71,7 @@
         android:layout_marginTop="580dp"
         android:gravity="center"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         android:hint="user"
         android:id="@+id/USER"/>
 

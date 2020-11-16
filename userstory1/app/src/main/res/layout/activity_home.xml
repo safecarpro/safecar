@@ -20,7 +20,8 @@
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="210dp"
+            android:elevation="5dp"
+            android:layout_marginTop="110dp"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/btn"
@@ -33,7 +34,8 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="290dp"
-            android:layout_marginTop="215dp"
+            android:elevation="5dp"
+            android:layout_marginTop="110dp"
             android:layout_marginEnd="30dp"
             android:src="@drawable/location" />
 
@@ -44,6 +46,7 @@
             android:layout_height="55dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="300dp"
+            android:visibility="gone"
             android:background="@drawable/btn"
             android:hint="   pickup "
             android:focusableInTouchMode="false"
@@ -54,6 +57,7 @@
             android:id="@+id/datepickic"
             android:layout_width="38dp"
             android:layout_height="34dp"
+            android:visibility="gone"
             android:layout_marginStart="325dp"
             android:layout_marginTop="310dp"
             android:src="@drawable/cal" />
@@ -69,6 +73,7 @@
             android:layout_marginTop="370dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/btn"
+            android:visibility="gone"
             android:elevation="5dp"
             android:hint="   drop off "
             android:focusableInTouchMode="false"/>
@@ -77,6 +82,7 @@
             android:id="@+id/datedropic"
             android:layout_width="39dp"
             android:layout_height="37dp"
+            android:visibility="gone"
             android:layout_marginStart="325dp"
             android:layout_marginTop="375dp"
             android:src="@drawable/cal" />
@@ -89,7 +95,7 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="180dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="300dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/joinbtn"
             android:text="Find drivers"
@@ -100,7 +106,7 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="300dp"
 
             android:background="@drawable/joinbtn"
             android:text="Find cars"

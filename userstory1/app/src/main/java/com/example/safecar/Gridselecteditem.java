@@ -35,6 +35,7 @@ public class Gridselecteditem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Car details");
         setContentView(R.layout.activity_gridselecteditem);
 
         br = (TextView)findViewById(R.id.Br);

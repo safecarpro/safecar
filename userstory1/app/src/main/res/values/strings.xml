@@ -14,5 +14,5 @@
     <string name="drawerf">drawf</string>
     <string name="daweroff">drawff</string>
     <string name="safe">SAFE CAR</string>
-
+<string name="cardetails">Car details</string>
 </resources>
