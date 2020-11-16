@@ -18,7 +18,7 @@ public class Gridselecteditem extends AppCompatActivity {
     TextView br,model,price,agency,kms,phone,location,email,carid,carreview;
     ImageView imgcar;
     DatabaseHelper db;
-    Button rentc,chat;
+    Button rentc,chat,chat2;
 
   //*********************review car***************
     private ListView listView;
