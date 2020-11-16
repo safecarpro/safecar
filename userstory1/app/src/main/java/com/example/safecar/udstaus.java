@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,13 @@ public class udstaus extends AppCompatActivity {
     ListView lvstatus;
     TextView dstatus,did,dname;
     Button update;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.udstaus);
+        db=new DatabaseHelper(this);
 
         update = findViewById(R.id.update);
 
@@ -33,8 +36,8 @@ public class udstaus extends AppCompatActivity {
         dname = findViewById(R.id.dname);
 
         Intent intent = getIntent();
-        String drivid = intent.getStringExtra("did");
-        String drivname = intent.getStringExtra("dname");
+       final String drivid = intent.getStringExtra("did");
+       final String drivname = intent.getStringExtra("dname");
 
 
         did.setText(drivid);
@@ -44,7 +47,7 @@ public class udstaus extends AppCompatActivity {
         List<String> data = new ArrayList<>();
 
         data.add("booked");
-        data.add("pending");
+        data.add("available");
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
         lvstatus.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(udstaus.this);
@@ -74,6 +77,12 @@ public class udstaus extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String did2= did.getText().toString();
+                String status = dstatus.getText().toString();
+                db.udstatus(did2,status);
+                // db.getData("UPDATE  NOTIFICATION SET status ="+ "'"+status+"'"+" where scid =" +"'"+cid2+"'" );
+                Toast.makeText(udstaus.this, "added succesfully ", Toast.LENGTH_LONG).show();
 
             }
         });

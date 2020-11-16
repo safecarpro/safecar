@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class Gridselecteditem extends AppCompatActivity {
     TextView br,model,price,agency,kms,phone,location,email,carid,carreview;
     ImageView imgcar;
     DatabaseHelper db;
-    Button rentc,chat,chat2;
+    Button rentc,chat1,chat2;
 
   //*********************review car***************
     private ListView listView;
@@ -48,6 +49,7 @@ public class Gridselecteditem extends AppCompatActivity {
         rentc = findViewById(R.id.rentc);
         carid = findViewById(R.id.carid);
         carreview = findViewById(R.id.car_review);
+        chat1 = findViewById(R.id.chat);
 
 
 
@@ -126,11 +128,24 @@ public class Gridselecteditem extends AppCompatActivity {
                Intent r = new Intent(Gridselecteditem.this, confirmcar.class);
                String cid = carid.getText().toString();
                String cname = br.getText().toString();
+
               // Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
                r.putExtra("carid",cid);
                r.putExtra("carname",cname);
                startActivity(r);
 
+           }
+       });
+
+
+       chat1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               String ph = phone.getText().toString();
+               String url = "http://api.whatsapp.com/send?phone=" +"91"+ ph;
+               Intent i = new Intent(Intent.ACTION_VIEW);
+               i.setData(Uri.parse(url));
+               startActivity(i);
            }
        });
     }

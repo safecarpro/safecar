@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,7 @@ public class griddriveritem extends AppCompatActivity {
     TextView dvname,dvaddress,dvage,dvgender,dvprice,dvbadge,dvlocation,dvyoe,dvphno,dvemail,driverid,driver_review;
     ImageView imgdriver;
     DatabaseHelper db;
-    Button rentd;
+    Button rentd,chat2;
 
     private ListView listView;
     private SimpleCursorAdapter adapter;
@@ -51,6 +52,7 @@ public class griddriveritem extends AppCompatActivity {
         rentd = findViewById(R.id.rentd);
         driverid = findViewById(R.id.drivid);
         driver_review = findViewById(R.id.driver_review);
+        chat2 = findViewById(R.id.chatd);
 
         Intent intent = getIntent();
         String sid = intent.getStringExtra("did");
@@ -120,15 +122,28 @@ public class griddriveritem extends AppCompatActivity {
             }
         });
 
+        chat2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String ph = dvphno.getText().toString();
+                String url = "http://api.whatsapp.com/send?phone=" +"91"+ ph;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
+            }
+        });
+
     }
     public static Bitmap getImage(byte[] image) {
 
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
-    public void onBackPressed() {
+   /* public void onBackPressed() {
         super.onBackPressed();
         Intent in = new Intent(getApplicationContext(), DriverView.class);
         startActivity(in);
         finish();
-    }
+    }*/
 }

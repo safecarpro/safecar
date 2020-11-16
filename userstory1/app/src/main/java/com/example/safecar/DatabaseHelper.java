@@ -557,6 +557,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return i;
     }
 
+//********************update staus of car*****************
+
+    public int ustatus(String did, String status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_status, status);
+        int i = db.update(TABLE_NOTIFICATION, contentValues, COL_scid + " = " + did, null);
+        return i;
+    }
+
+    //********************update staus of driver*****************
+
+    public int udstatus(String did, String status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_dstatus, status);
+        int i = db.update(TABLE_DNOTIFICATION, contentValues, COL_dscid + " = " + did, null);
+        return i;
+    }
+
 
     //delete cardata
     public int deletecardata(String cid){

@@ -39,7 +39,7 @@ public class ucstatus extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String carid = intent.getStringExtra("cid");
-       final String cname = intent.getStringExtra("cname");
+        final String cname = intent.getStringExtra("cname");
 
         cid1.setText(carid);
         carname1.setText(cname);
@@ -49,7 +49,7 @@ public class ucstatus extends AppCompatActivity {
         List<String> data = new ArrayList<>();
 
         data.add("booked");
-        data.add("pending");
+        data.add("available");
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
         lvstatus.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(ucstatus.this);
@@ -80,9 +80,11 @@ public class ucstatus extends AppCompatActivity {
 
 
 
+
                 String cid2= cid1.getText().toString();
                 String status = cstatus.getText().toString();
-                db.getData("UPDATE  NOTIFICATION SET status ="+ "'"+status+"'"+" where scid =" +"'"+cid2+"'" );
+                db.ustatus(cid2,status);
+               // db.getData("UPDATE  NOTIFICATION SET status ="+ "'"+status+"'"+" where scid =" +"'"+cid2+"'" );
                 Toast.makeText(ucstatus.this, "added succesfully ", Toast.LENGTH_LONG).show();
 
             }
