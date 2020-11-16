@@ -53,7 +53,8 @@
             android:layout_height="45dp"
             android:layout_marginTop="35dp"
             android:background="@drawable/btn"
-            android:elevation="5dp"
+            android:drawableLeft="@drawable/username"
+            android:elevation="1dp"
             android:hint=" username"
             android:inputType="text"
             android:paddingLeft="15dp"
@@ -65,9 +66,10 @@
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn"
-            android:elevation="5dp"
+            android:elevation="1dp"
             android:hint=" password "
             android:inputType="textPassword"
+            android:drawableLeft="@drawable/lock"
             android:paddingLeft="15dp"
             android:textColorHint="@color/fullwhite" />
 
