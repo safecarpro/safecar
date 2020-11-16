@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Rating extends AppCompatActivity {
     RatingBar ratingBar;
@@ -26,6 +27,8 @@ public class Rating extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
+
+        db = new DatabaseHelper(this);
         ratingBar= findViewById(R.id.ratingbar);
         comment= findViewById(R.id.comment);
         ratecount= findViewById(R.id.ratecount);
@@ -73,7 +76,7 @@ public class Rating extends AppCompatActivity {
 
                 String rating=showrating.getText().toString();
                 db.creview(carid2, username, rating);
-
+                Toast.makeText(Rating.this, "reviwed succcesfully ", Toast.LENGTH_LONG).show();
             }
         });
 

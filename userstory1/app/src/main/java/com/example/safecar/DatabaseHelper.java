@@ -87,8 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //table car review
 
     public static final String TABLE_CREVIEW = "CREVIEW";
-    public static final String COL_rid = "rid";
-    public static final String COL_carid = "cid";
+    public static final String COL_rid = "_id";
+    public static final String COL_carid = "rcid";
     public static final String COL_user = "user";
     public static final String COL_creview = "creview";
 
@@ -96,8 +96,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //table driver review
 
     public static final String TABLE_DREVIEW = "DREVIEW";
-    public static final String COL_rdid = "rdid";
-    public static final String COL_driverid = "did";
+    public static final String COL_rdid = "_id";
+    public static final String COL_driverid = "rdid";
     public static final String COL_duser = "user";
     public static final String COL_dreview = "dreview";
 
@@ -133,7 +133,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_cloc + " TEXT,"
             + COL_cemail + " TEXT,"
             + COL_cuid + " TEXT,"
-            + COL_iv + " BLOB" + ")";
+            + COL_iv + " BLOB,"
+            + " FOREIGN KEY ("+COL_cuid+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
+
 // CREATE DRIVER TABLE
 
     private String CREATE_DRIVER_TABLE = "CREATE TABLE " + TABLE_DRIVER + "("
@@ -149,7 +151,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_dphno + " TEXT,"
             + COL_demail + " TEXT,"
             + COL_uid + " TEXT,"
-            + COL_v + " BLOB" + ")";
+            + COL_v + " BLOB,"
+            + " FOREIGN KEY ("+COL_uid+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
 
     //CREATE TBALE NOTIFACTION
 
@@ -160,11 +163,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_dloc + " TEXT,"
             + COL_pdate + " TEXT,"
             + COL_ddate + " TEXT,"
-            + COL_nuid + " TEXT,"
             + COL_time + " date default CURRENT_TIMESTAMP, "
-            + COL_scid + " TEXT,"
-            + COL_carname + " TEXT,"
-            + COL_status + " TEXT" + ")";
+            + COL_scid + " INTEGER,"
+            + COL_carname + " TEXT NOT NULL,"
+            + COL_status + " TEXT NOT NULL,"
+            + " FOREIGN KEY ("+COL_scid+") REFERENCES "+TABLE_CAR+" ("+COL_cid+"));";
 
 
     //CREATE TBALE DNOTIFACTION
@@ -176,11 +179,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_ddloc + " TEXT,"
             + COL_dpdate + " TEXT,"
             + COL_dddate + " TEXT,"
-            + COL_dnuid + " TEXT,"
             + COL_dtime + " date default CURRENT_TIMESTAMP, "
             + COL_dscid + " TEXT,"
             + COL_drivername + " TEXT,"
-            + COL_dstatus + " TEXT" + ")";
+            + COL_dstatus + " TEXT,"
+            + " FOREIGN KEY ("+COL_dscid+") REFERENCES "+TABLE_DRIVER+" ("+COL_did+"));";
 
     //create table car review
 
@@ -203,7 +206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 17
+        super(context, DATABASE_NAME, null, 24
         );
 
     }
@@ -257,9 +260,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor notiflist(String _id) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NOTIFICATION + " WHERE " + COL_nuid + " = '" + _id + "'", null);
+       // Cursor cursor = db.rawQuery
+        String POSTS_SELECT_QUERY =
+                String.format("SELECT * FROM %s JOIN %s ON %s.%s = %s.%s WHERE %s = "+_id,
+        TABLE_NOTIFICATION,
+                TABLE_CAR,
+                TABLE_NOTIFICATION, COL_scid,
+                TABLE_CAR, COL_cid,
+                COL_cuid);
 
+       // return cursor;
+        Cursor cursor = db.rawQuery(POSTS_SELECT_QUERY, null);
+        if (cursor != null) {
+
+            cursor.moveToLast();
+        }
         return cursor;
+
     }
 
 
@@ -267,11 +284,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor dnotiflist(String _id) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_DNOTIFICATION + " WHERE " + COL_dnuid + " = '" + _id + "'", null);
+        // Cursor cursor = db.rawQuery
+        String POSTS_SELECT_QUERY =
+                String.format("SELECT * FROM %s JOIN %s ON %s.%s = %s.%s WHERE %s = "+_id,
+                        TABLE_DNOTIFICATION,
+                        TABLE_DRIVER,
+                        TABLE_DNOTIFICATION, COL_dscid,
+                        TABLE_DRIVER, COL_did,
+                        COL_uid);
+
+        // return cursor;
+        Cursor cursor = db.rawQuery(POSTS_SELECT_QUERY, null);
+        if (cursor != null) {
+
+            cursor.moveToLast();
+        }
+        return cursor;
+    }
+
+    //****************review list***********
+    public Cursor crlist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CREVIEW + " WHERE " + COL_carid + " = '" + _id + "'", null);
 
         return cursor;
     }
 
+
+    //************************review list driver*************
+
+    public Cursor drlist(String _id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_DREVIEW + " WHERE " + COL_driverid + " = '" + _id + "'", null);
+
+        return cursor;
+    }
 
 
         public boolean insertdata(String username, String address, String gender, String email, String phnno, String password, String location) {
@@ -343,9 +392,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_carid, driverid2);
-        contentValues.put(COL_user, username);
-        contentValues.put(COL_creview, rating);
+        contentValues.put(COL_driverid, driverid2);
+        contentValues.put(COL_duser, username);
+        contentValues.put(COL_dreview, rating);
 
 
 
@@ -360,7 +409,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //inserting data to notification table
 
-    public boolean insertnotif( String username,String spickloc, String sdroploc,String spdate, String sddate, String uid,String scid,String cname,String status) {
+    public boolean insertnotif( String username,String spickloc, String sdroploc,String spdate, String sddate,String scid,String cname,String status) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -369,7 +418,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_dloc, sdroploc);
         contentValues.put(COL_pdate, spdate);
         contentValues.put(COL_ddate, sddate);
-        contentValues.put(COL_nuid, uid);
+
         contentValues.put(COL_scid, scid);
         contentValues.put(COL_carname, cname);
         contentValues.put(COL_status, status);
@@ -388,7 +437,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //inserting data to DRTIVER notification table
 
     public boolean insertdnotif( String username,String spickloc, String sdroploc, String spdate, String
-            sddate,String uid, String scid,String dname,String dstatus) {
+            sddate, String scid,String dname,String dstatus) {
 
         SQLiteDatabase dbd = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -397,7 +446,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_ddloc, sdroploc);
         contentValues.put(COL_dpdate, spdate);
         contentValues.put(COL_dddate, sddate);
-        contentValues.put(COL_dnuid, uid);
+
         contentValues.put(COL_dscid, scid);
         contentValues.put(COL_drivername, dname);
         contentValues.put(COL_dstatus, dstatus);

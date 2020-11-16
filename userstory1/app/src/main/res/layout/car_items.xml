@@ -159,7 +159,22 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/txtemail"
+    android:id="@+id/txtemail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/imgFood"
+    android:layout_alignEnd="@+id/imgFood"
+    android:layout_alignRight="@+id/imgFood"
+    android:layout_marginTop="449dp"
+    android:layout_marginEnd="38dp"
+    android:layout_marginRight="38dp"
+    android:text="email"
+    android:textAlignment="center"
+    android:textColor="#ce1309"
+    android:textSize="17sp"
+    android:visibility="gone"/>
+    <TextView
+        android:id="@+id/cuid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgFood"
@@ -168,7 +183,7 @@
         android:layout_marginTop="449dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
-        android:text="email"
+        android:text="cownerid"
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"

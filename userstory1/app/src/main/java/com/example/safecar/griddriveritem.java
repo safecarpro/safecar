@@ -3,12 +3,15 @@ package com.example.safecar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class griddriveritem extends AppCompatActivity {
@@ -17,6 +20,16 @@ public class griddriveritem extends AppCompatActivity {
     ImageView imgdriver;
     DatabaseHelper db;
     Button rentd;
+
+    private ListView listView;
+    private SimpleCursorAdapter adapter;
+
+    final String[] from = new String[]{db.COL_driverid,db.COL_duser,
+            db.COL_dreview};
+
+    final int[] to = new int[]{R.id.driverid, R.id.duser, R.id.dreview};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +67,18 @@ public class griddriveritem extends AppCompatActivity {
         Bitmap bitmap = intent.getParcelableExtra("dbitmap");
 
 
+
+        db = new DatabaseHelper(this);
+        Cursor cursor = db.drlist(sid);
+
+        listView = findViewById(R.id.lvdreview);
+
+        adapter = new SimpleCursorAdapter(this,R.layout.reviewditem, cursor, from, to,0);
+        adapter.notifyDataSetChanged();
+
+        listView.setAdapter(adapter);
+
+
         driverid.setText(sid);
         dvname.setText(sname);
         dvaddress.setText(saddress);
@@ -68,10 +93,15 @@ public class griddriveritem extends AppCompatActivity {
         byte[] bytes = db.driverImage(sid);
         imgdriver.setImageBitmap(getImage(bytes));
 
+
         driver_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent rs = new Intent(griddriveritem.this, Rating.class);
+                Intent rs = new Intent(griddriveritem.this, rating_driver.class);
+                String did = driverid.getText().toString();
+
+                rs.putExtra("driverid",did);
+
                 startActivity(rs);
             }
         });

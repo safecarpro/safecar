@@ -281,6 +281,13 @@
             android:textSize="23sp"
             android:textStyle="normal"
             android:focusable="false"/>
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginTop="930dp"
+            android:id="@+id/lvcreview">
+
+        </ListView>
 
     </RelativeLayout>
 </ScrollView>

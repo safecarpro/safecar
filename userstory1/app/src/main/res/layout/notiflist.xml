@@ -168,5 +168,18 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:drawableLeft="@drawable/cal"/>
+    <TextView
+        android:id="@+id/carid3"
+        android:layout_width="115dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="28dp"
+        android:hint="carid"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        />
 
 </RelativeLayout>

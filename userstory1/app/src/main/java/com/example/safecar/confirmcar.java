@@ -202,21 +202,24 @@ public class confirmcar extends AppCompatActivity {
                 String status = "booked";
 
 
-                Addnotif(username,spickloc, sdroploc, spdate, sddate, uid,scid,csname,status);
+                Addnotif(username,spickloc, sdroploc, spdate, sddate,scid,csname,status);
                 alert(view);
                 
                /* Intent r = new Intent(confirmcar.this, Home.class);
                 startActivity(r);
                 finish();*/
+               /* Intent s = new Intent(confirmcar.this,notifview.class);
+                s.putExtra("carid",scid);
+                startActivity(s);*/
             }
 
 
             }
 
             private void Addnotif (String username,String spickloc, String sdroploc, String spdate, String
-                    sddate,String uid, String scid,String csname,String status){
+                    sddate, String scid,String csname,String status){
 
-                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate, uid, scid,csname,status);
+                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate,  scid,csname,status);
             }
         });
 

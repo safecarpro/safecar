@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -34,13 +35,15 @@ public class Addcar extends AppCompatActivity {
 
     DatabaseHelper db;
     EditText brand,model,amount,agency,kms,phonenum,loc,emailcar;
+    TextView carowner;
     Button addcar,carreset,addimage;
     final int REQUEST_CODE_GALLERY = 999;
     SharedPreferences sp;
     ListView lvcity;
 
+
     ImageView iv;
-    String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage,cuid;
+    String  cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemailcar, caddcar,ccarreset,caddimage,cuid,cowner;
     
     
     public final Pattern EMAIL_ADDRESS_PATTERN = Pattern
@@ -57,6 +60,7 @@ public class Addcar extends AppCompatActivity {
 
         sp = getSharedPreferences("user_details",MODE_PRIVATE);
         cuid = sp.getString("uid",null);
+        cowner= sp.getString("username",null);
 
 
         db = new DatabaseHelper(this);
@@ -71,7 +75,9 @@ public class Addcar extends AppCompatActivity {
         addcar =  findViewById(R.id.addcar);
         carreset= findViewById(R.id.carreset);
         addimage =  findViewById(R.id.addimage);
+        carowner= findViewById(R.id.carowner);
         iv = findViewById(R.id.iv);
+
 
         lvcity = findViewById(R.id.lvcity);
         lvcity = new ListView(this);

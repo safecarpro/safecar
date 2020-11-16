@@ -3,12 +3,15 @@ package com.example.safecar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class Gridselecteditem extends AppCompatActivity {
@@ -16,11 +19,23 @@ public class Gridselecteditem extends AppCompatActivity {
     ImageView imgcar;
     DatabaseHelper db;
     Button rentc,chat;
+
+  //*********************review car***************
+    private ListView listView;
+    private SimpleCursorAdapter adapter;
+
+    final String[] from = new String[]{db.COL_carid,db.COL_user,
+            db.COL_creview};
+
+    final int[] to = new int[]{R.id.carid, R.id.user, R.id.creview};
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gridselecteditem);
-        db = new DatabaseHelper(this);
+
         br = (TextView)findViewById(R.id.Br);
         model = (TextView)findViewById(R.id.model);
         price = (TextView)findViewById(R.id.price);
@@ -33,6 +48,7 @@ public class Gridselecteditem extends AppCompatActivity {
         rentc = findViewById(R.id.rentc);
         carid = findViewById(R.id.carid);
         carreview = findViewById(R.id.car_review);
+
 
 
 
@@ -51,8 +67,18 @@ public class Gridselecteditem extends AppCompatActivity {
         Bitmap bitmap = intent.getParcelableExtra("bitmap");
 
 
+        db = new DatabaseHelper(this);
+        Cursor cursor = db.crlist(sid);
 
-       // String cid = carid.getText().toString();
+        listView = findViewById(R.id.lvcreview);
+
+        adapter = new SimpleCursorAdapter(this,R.layout.reviewictem, cursor, from, to,0);
+        adapter.notifyDataSetChanged();
+
+        listView.setAdapter(adapter);
+
+
+
 
 
 
@@ -69,6 +95,10 @@ public class Gridselecteditem extends AppCompatActivity {
        imgcar.setImageBitmap(getImage(bytes));
 
 
+
+       // String cid = carid.getText().toString();
+
+        // String cid = carid.getText().toString();
        /* String cid = carid.getText().toString();
         Intent s = new Intent(Gridselecteditem.this,confirmcar.class);
         s.putExtra("carid",cid);

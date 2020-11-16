@@ -201,7 +201,7 @@ public class confirmdriver extends AppCompatActivity {
                     String dstatus = "booked";
 
 
-                    db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, uid, scid,drivername,dstatus);
+                    db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, scid,drivername,dstatus);
                    // Adddnotif(username,spickloc, sdroploc, spdate, sddate, uid,scid);
                     dalert(view);
 
@@ -213,9 +213,9 @@ public class confirmdriver extends AppCompatActivity {
             }
 
             private void Adddnotif (String username,String spickloc, String sdroploc, String spdate, String
-                    sddate,String uid, String scid,String dname,String dstatus) {
+                    sddate, String scid,String dname,String dstatus) {
 
-                boolean insertnotif = db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, uid, scid,dname,dstatus);
+                boolean insertnotif = db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, scid,dname,dstatus);
             }
 
             });

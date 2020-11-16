@@ -20,15 +20,16 @@
 
     <TextView
         android:id="@+id/nuid"
-        android:layout_width="wrap_content"
+        android:layout_width="6dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/uimgcar"
         android:layout_alignEnd="@+id/uimgcar"
         android:layout_alignRight="@+id/uimgcar"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="43dp"
         android:layout_marginRight="43dp"
-
+        android:hint="did"
         android:textAlignment="center"
         android:textColor="#ce1309"
         android:textSize="17sp"
@@ -117,5 +118,18 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="17sp" />
+    <TextView
+        android:id="@+id/drivid"
+        android:layout_width="115dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="28dp"
+        android:hint="drivid"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        />
 
 </RelativeLayout>
