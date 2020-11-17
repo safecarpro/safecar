@@ -2,15 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.safecar">
 
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/carlogo"
         android:label="@string/app_name"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".udstaus"></activity>
+        <activity android:name=".bookeddrivers"></activity>
+        <activity android:name=".deldbook" />
+        <activity android:name=".delcbook" />
+        <activity android:name=".bookedcars" />
+        <activity android:name=".udstaus" />
         <activity android:name=".ucstatus" />
         <activity android:name=".rating_driver" />
         <activity android:name=".Rating" />
@@ -38,15 +48,9 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <supports-screens android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
-        android:anyDensity="true"/>
 
 </manifest>

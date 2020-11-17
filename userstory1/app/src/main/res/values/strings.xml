@@ -4,8 +4,8 @@
     <string name="addcar">Add Car</string>
     <string name="rentdriver">Rent Driver</string>
     <string name="adddriver">Add Driver</string>
-    <string name="notification">Notification</string>
-    <string name="dnotification">Dnotification</string>
+    <string name="notification">Car Renting report</string>
+    <string name="dnotification">Driver Renting Report</string>
     <string name="updatecar">Update Car</string>
     <string name="updatedriver">Update Driver</string>
     <string name="about">About</string>
@@ -14,5 +14,7 @@
     <string name="drawerf">drawf</string>
     <string name="daweroff">drawff</string>
     <string name="safe">SAFE CAR</string>
-<string name="cardetails">Car details</string>
+    <string name="cardetails">Car details</string>
+    <string name="carbooking">My Car booking</string>
+    <string name="driverbooking">My Driver bookings</string>
 </resources>

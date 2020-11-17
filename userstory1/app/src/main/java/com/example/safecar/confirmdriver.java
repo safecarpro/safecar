@@ -22,11 +22,11 @@ import java.util.List;
 
 public class confirmdriver extends AppCompatActivity {
 
-    EditText dpickloc,ddroplock,ddatepick,ddatedrop,drivid,dname,duser;
+    EditText dpickloc,ddroplock,ddatepick,ddatedrop,drivid,dname,userid;
     Button dsubmit,dcancel;
     private int tdate,tmonth,tyear,fdate,fmonth,fyear;
     ListView lv,lv2;
-    String  username,spickloc,sdroploc,spdate,sddate,uid,scid,drivername;
+    String  username,spickloc,sdroploc,spdate,sddate,usid,scid,drivername,uid;
     DatabaseHelper db;
     SharedPreferences sp;
 
@@ -50,7 +50,7 @@ public class confirmdriver extends AppCompatActivity {
         dsubmit = findViewById(R.id.dsubmit);
         drivid = findViewById(R.id.drivid);
         dname = findViewById(R.id.drivname);
-       // dudid = findViewById(R.id.duid);
+        userid = findViewById(R.id.userid);
         //duser = findViewById(R.id.dusername);
 
 
@@ -60,6 +60,7 @@ public class confirmdriver extends AppCompatActivity {
         final String drivname = intent.getStringExtra("drivname");
         drivid.setText(did);
         dname.setText(drivname);
+        userid.setText(uid);
         //duser.setText(dusername);
 
 
@@ -192,6 +193,7 @@ public class confirmdriver extends AppCompatActivity {
 
                 {
 
+                    usid=userid.getText().toString();
                     spickloc=dpickloc.getText().toString();
                     sdroploc=ddroplock.getText().toString();
                     spdate=ddatepick.getText().toString();
@@ -201,7 +203,7 @@ public class confirmdriver extends AppCompatActivity {
                     String dstatus = "booked";
 
 
-                    db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, scid,drivername,dstatus);
+                    db.insertdnotif(username, spickloc, sdroploc, spdate, sddate,usid, scid,drivername,dstatus);
                    // Adddnotif(username,spickloc, sdroploc, spdate, sddate, uid,scid);
                     dalert(view);
 
@@ -213,9 +215,9 @@ public class confirmdriver extends AppCompatActivity {
             }
 
             private void Adddnotif (String username,String spickloc, String sdroploc, String spdate, String
-                    sddate, String scid,String dname,String dstatus) {
+                    sddate,String usid, String scid,String dname,String dstatus) {
 
-                boolean insertnotif = db.insertdnotif(username, spickloc, sdroploc, spdate, sddate, scid,dname,dstatus);
+                boolean insertnotif = db.insertdnotif(username, spickloc, sdroploc, spdate, sddate,usid, scid,dname,dstatus);
             }
 
             });

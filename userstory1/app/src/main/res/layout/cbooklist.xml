@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:background="@drawable/btn">
+
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="50dp"
+
+      android:elevation="5dp">
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="45dp"
+
+        android:text="User"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/person2"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="115dp"
+
+        android:layout_marginTop="45dp"
+
+        android:text="rented"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/nuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uimgcar"
+        android:layout_alignEnd="@+id/uimgcar"
+        android:layout_alignRight="@+id/uimgcar"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+
+        android:textAlignment="center"
+        android:textColor="#ce1309"
+        android:textSize="17sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/carname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="45dp"
+
+        android:layout_marginStart="193dp"
+        android:layout_marginRight="-110dp"
+        android:text="carname"
+        android:textAlignment="center"
+        android:textColor="#101010"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/carvector"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="145dp"
+        android:layout_height="20dp"
+
+
+        android:layout_marginStart="243dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="-110dp"
+        android:text="time"
+
+        android:textColor="#979494"
+        android:textSize="15sp"
+        android:drawableLeft="@drawable/time"/>
+
+    <TextView
+        android:id="@+id/locpick"
+        android:layout_width="115dp"
+        android:layout_height="30dp"
+
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="locpick"
+
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:drawableLeft="@drawable/location"/>
+
+    <TextView
+
+        android:layout_width="51dp"
+        android:layout_height="30dp"
+
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+
+
+        android:textColor="@color/black"
+        android:textSize="29sp"
+        android:drawableLeft="@drawable/travel"/>
+
+    <TextView
+        android:id="@+id/locdrop"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+
+        android:layout_marginStart="213dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="28dp"
+        android:drawableLeft="@drawable/location"
+        android:text="locdrop"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/datepic"
+        android:layout_width="115dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="datepick"
+
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/cal"/>
+
+
+    <TextView
+
+        android:layout_width="35dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+
+
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/travel"/>
+
+    <TextView
+        android:id="@+id/datedrop"
+        android:layout_width="115dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="213dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="28dp"
+        android:text="datedrop"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/cal"/>
+    <TextView
+        android:id="@+id/carid3"
+        android:layout_width="115dp"
+        android:layout_height="28dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="28dp"
+        android:hint="carid"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        />
+  </RelativeLayout>
+
+
+
+</RelativeLayout>

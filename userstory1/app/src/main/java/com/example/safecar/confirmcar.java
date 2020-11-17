@@ -26,12 +26,12 @@ import static android.R.*;
 
 public class confirmcar extends AppCompatActivity {
 
-    EditText pickloc,droplock,datepick,datedrop,carid,carname;
+    EditText pickloc,droplock,datepick,datedrop,carid,carname,userid;
     Button submit,cancel;
     private int tdate,tmonth,tyear,fdate,fmonth,fyear;
     ListView lv,lv2;
     DatabaseHelper db;
-    String  username,spickloc,sdroploc,spdate,sddate,uid,scid,csname;
+    String  username,spickloc,sdroploc,spdate,sddate,uid,scid,csname,usid;
     SharedPreferences sd;
 
 
@@ -53,6 +53,7 @@ public class confirmcar extends AppCompatActivity {
         lv = findViewById(R.id.listcity);
         submit = findViewById(R.id.submit);
         carname = findViewById(R.id.carname);
+        userid = findViewById(R.id.userid);
 
         Intent intent = getIntent();
 
@@ -60,6 +61,7 @@ public class confirmcar extends AppCompatActivity {
         final String cname = intent.getStringExtra("carname");
         carid.setText(cid);
         carname.setText(cname);
+        userid.setText(uid);
 
         lv = new ListView(this);
         List<String> data = new ArrayList<>();
@@ -193,6 +195,7 @@ public class confirmcar extends AppCompatActivity {
             {
 
 
+                usid=userid.getText().toString();
                 spickloc=pickloc.getText().toString();
                 sdroploc=droplock.getText().toString();
                 spdate=datepick.getText().toString();
@@ -202,7 +205,7 @@ public class confirmcar extends AppCompatActivity {
                 String status = "booked";
 
 
-                Addnotif(username,spickloc, sdroploc, spdate, sddate,scid,csname,status);
+                Addnotif(username,spickloc, sdroploc, spdate, sddate,scid,usid,csname,status);
                 alert(view);
                 
                /* Intent r = new Intent(confirmcar.this, Home.class);
@@ -217,9 +220,9 @@ public class confirmcar extends AppCompatActivity {
             }
 
             private void Addnotif (String username,String spickloc, String sdroploc, String spdate, String
-                    sddate, String scid,String csname,String status){
+                    sddate,String uid, String scid,String csname,String status){
 
-                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate,  scid,csname,status);
+                boolean insertnotif = db.insertnotif(username,spickloc, sdroploc, spdate, sddate,uid, scid,csname,status);
             }
         });
 

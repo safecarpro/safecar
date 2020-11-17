@@ -109,8 +109,10 @@ public class Home extends AppCompatActivity  {
                 int id = menuItem.getItemId();
                 switch (id){
 
-                    case R.id.rentcar:
-                        Toast.makeText(Home.this, "rented car", Toast.LENGTH_SHORT).show();
+                    case R.id.carbooking:
+                        Intent cbook = new Intent(Home.this, bookedcars.class);
+                        startActivity(cbook);
+                        finish();
                         return true;
                     case R.id.addcar:
                         Intent main = new Intent(Home.this, Addcar.class);
@@ -118,8 +120,10 @@ public class Home extends AppCompatActivity  {
                         finish();
                         Toast.makeText(Home.this, "added car", Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.rentdriver:
-                        Toast.makeText(Home.this, "rented driver", Toast.LENGTH_SHORT).show();
+                    case R.id.driverbooking:
+                        Intent dbook = new Intent(Home.this, bookeddrivers.class);
+                        startActivity(dbook);
+                        finish();
                         return true;
                     case R.id.adddriver:
                         Intent intent= new Intent(Home.this,Adddriver.class);
