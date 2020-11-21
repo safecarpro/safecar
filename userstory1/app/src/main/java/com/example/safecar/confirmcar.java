@@ -205,7 +205,7 @@ public class confirmcar extends AppCompatActivity {
                 String status = "booked";
 
 
-                Addnotif(username,spickloc, sdroploc, spdate, sddate,scid,usid,csname,status);
+                Addnotif(username,spickloc, sdroploc, spdate, sddate,usid,scid,csname,status);
                 alert(view);
                 
                /* Intent r = new Intent(confirmcar.this, Home.class);

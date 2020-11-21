@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         tools:context=".Rating"
         android:orientation="vertical">
+    <include layout="@layout/appbar"/>
 
         <TextView
             android:layout_width="150dp"
@@ -14,6 +15,7 @@
             android:text="ADD REVIEW "
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <RatingBar
@@ -28,6 +30,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="165dp"
             android:gravity="center"
+            android:background="@drawable/btn"
             android:layout_centerHorizontal="true"
             android:hint="ratecount"
             android:id="@+id/ratecount"/>
@@ -39,12 +42,14 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:hint="Write a Review.."
+            android:background="@drawable/btn"
             android:id="@+id/comment"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:text="SUBMIT"
             android:id="@+id/submit"
+            android:background="@drawable/joinbtn"
             android:layout_marginTop="295dp"
             android:layout_marginStart="270dp"/>
         <TextView
@@ -54,6 +59,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:hint="ratecount"
+            android:background="@drawable/btn"
             android:id="@+id/showrating"/>
 
     <TextView

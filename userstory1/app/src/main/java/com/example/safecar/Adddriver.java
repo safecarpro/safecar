@@ -1,10 +1,13 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,6 +32,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -41,6 +46,8 @@ public class Adddriver extends AppCompatActivity {
     final int REQUEST_CODE_GALLERY = 999;
     SharedPreferences sp;
     ListView lvcity;
+    Toolbar tb;
+    private int mdate,mmonth,myear;
 
     ImageView v;
     String  dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage,uid;
@@ -77,6 +84,13 @@ public class Adddriver extends AppCompatActivity {
         driverreset= findViewById(R.id.driverreset);
         addimage =  findViewById(R.id.addimage);
         v = findViewById(R.id.v);
+
+
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("ADD CAR");
 
 
         lvcity = findViewById(R.id.lvcity);
@@ -124,6 +138,25 @@ public class Adddriver extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent,1);
 
+            }
+        });
+
+        age.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar cal = Calendar.getInstance();
+                mdate = cal.get(Calendar.DATE);
+                mmonth = cal.get(Calendar.MONTH);
+                myear = cal.get(Calendar.YEAR);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Adddriver.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int date) {
+                        age.setText(date+"-"+month+"-"+year);
+
+
+                    }
+                },myear,mmonth,mdate);
+                datePickerDialog.show();
             }
         });
 

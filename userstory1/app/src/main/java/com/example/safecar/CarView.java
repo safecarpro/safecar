@@ -1,6 +1,8 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,6 +26,7 @@ public class CarView extends AppCompatActivity {
     CarListAdapter adapter = null;
     DatabaseHelper db;
     Button findall;
+    Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,13 @@ public class CarView extends AppCompatActivity {
         db=new DatabaseHelper(this);
         gridView = (GridView) findViewById(R.id.gv_car);
         findall = findViewById(R.id.findall);
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(" CARS");
+
+
         list = new ArrayList<>();
         adapter = new CarListAdapter(this, R.layout.car_items, list);
         gridView.setAdapter(adapter);

@@ -1,5 +1,6 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class DriverView extends AppCompatActivity {
     DriverListAdapter adapter = null;
     DatabaseHelper db;
     Button alldriver;
+    Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,13 @@ public class DriverView extends AppCompatActivity {
         db=new DatabaseHelper(this);
         gridView = (GridView) findViewById(R.id.gv_driver);
         alldriver = findViewById(R.id.alldriver);
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(" DRIVERS");
+
+
         list = new ArrayList<>();
         adapter = new DriverListAdapter(this,R.layout.driveritem, list);
         gridView.setAdapter(adapter);

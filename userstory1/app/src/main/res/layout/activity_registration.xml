@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="10dp"
+
     android:background="@color/lightwhite"
     android:gravity="center">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/abril_fatface"
-        android:text="REGISTRATION"
+        android:fontFamily="sans-serif-medium"
+        android:text="SIGN UP"
         android:textColor="@color/black"
         android:textSize="30dp"
+
         android:textStyle="bold" />
 
     <EditText

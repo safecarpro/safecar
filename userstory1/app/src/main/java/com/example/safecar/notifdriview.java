@@ -1,5 +1,6 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 public class notifdriview extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class notifdriview extends AppCompatActivity {
     SharedPreferences cu;
     String dnuid,username;
     TextView driverid,drivername;
+    Toolbar tb;
 
     private ListView listView;
     private SimpleCursorAdapter adapter;
@@ -40,6 +43,12 @@ public class notifdriview extends AppCompatActivity {
         Cursor cursor = db.dnotiflist(dnuid);
 
         listView = findViewById(R.id.notifdlv);
+
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(" DRIVER RENT REPORT");
 
         adapter = new SimpleCursorAdapter(this,R.layout.notifdrivlist, cursor, from, to,0);
         adapter.notifyDataSetChanged();
@@ -64,5 +73,12 @@ public class notifdriview extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent in = new Intent(getApplicationContext(), Home.class);
+        startActivity(in);
+        finish();
     }
 }

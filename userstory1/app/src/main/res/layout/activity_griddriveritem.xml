@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="14dp"
+    android:background="@color/lightwhite"
     tools:context=".griddriveritem">
 
     <ScrollView
@@ -16,13 +18,15 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
             android:layout_margin="2dp"
-            android:padding="5dp"
+
             >
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:id="@+id/imgdriver"></ImageView>
+        android:layout_height="210dp"
+        android:id="@+id/imgdriver">
+
+    </ImageView>
 
 
     <TextView
@@ -42,14 +46,14 @@
         android:visibility="gone"/>
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="25dp"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:layout_marginTop="230dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="30dp"
         android:drawableLeft="@drawable/person2"
         android:textColor="@color/black"
         android:id="@+id/dname"
-        android:textSize="23sp"
+        android:textSize="25sp"
         android:hint="name"/>
     <TextView
         android:layout_width="wrap_content"
@@ -57,8 +61,8 @@
         android:layout_marginTop="410dp"
 
         android:id="@+id/daddress"
-        android:textSize="23sp"
-        android:layout_marginStart="170dp"
+        android:textSize="16sp"
+        android:layout_marginStart="150dp"
         android:hint="address"/>
             <TextView
 
@@ -69,7 +73,7 @@
                 android:layout_marginRight="53dp"
                 android:text="ADDRESS       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
@@ -78,8 +82,8 @@
         android:layout_marginTop="490dp"
 
         android:id="@+id/dage"
-        android:textSize="23sp"
-        android:layout_marginStart="170dp"
+        android:textSize="20sp"
+        android:layout_marginStart="150dp"
         android:hint="age"/>
             <TextView
 
@@ -90,7 +94,7 @@
                 android:layout_marginRight="53dp"
                 android:text="AGE       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
 
@@ -100,8 +104,8 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="530dp"
-                android:textSize="23sp"
-                android:layout_marginStart="170dp"
+                android:textSize="20sp"
+                android:layout_marginStart="150dp"
                 android:hint="gender" />
 
             <TextView
@@ -113,15 +117,16 @@
                 android:layout_marginRight="53dp"
                 android:text="GENDER       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
         android:layout_width="80dp"
         android:layout_height="25dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="290dp"
         android:layout_marginStart="40dp"
-        android:textSize="23sp"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
         android:id="@+id/dprice"
         android:textColor="@color/black"
         android:drawableLeft="@drawable/dollar"
@@ -132,8 +137,8 @@
         android:layout_marginTop="450dp"
 
         android:id="@+id/dbadge"
-        android:textSize="23sp"
-        android:layout_marginStart="170dp"
+        android:textSize="20sp"
+        android:layout_marginStart="150dp"
         android:hint="badge"/>
             <TextView
 
@@ -144,32 +149,32 @@
                 android:layout_marginRight="53dp"
                 android:text="BADGE       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="200dp"
         android:drawableLeft="@drawable/location"
         android:layout_marginEnd="41dp"
-        android:textSize="23sp"
+        android:textSize="16sp"
         android:id="@+id/dlocation"
-        android:textColor="@color/black"
+        android:textColor="#605D5D"
         android:hint="location"/>
 
             <ImageView
                 android:id="@+id/hline"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_width="2000dp"
+                android:layout_height="10dp"
                 android:background="@drawable/hline"
 
-                android:textStyle="bold"
+
                 android:layout_marginEnd="0dp"
 
 
-                android:layout_marginTop="330dp"
+                android:layout_marginTop="340dp"
                 android:layout_marginRight="0dp"
 
                 android:layout_marginStart="33dp"/>
@@ -188,11 +193,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="665dp"
+        android:layout_marginTop="668dp"
 
         android:id="@+id/dyoe"
-        android:textSize="23sp"
-        android:layout_marginStart="170dp"
+        android:textSize="18sp"
+        android:layout_marginStart="150dp"
         android:hint="yoe"/>
             <TextView
 
@@ -201,9 +206,9 @@
                 android:layout_marginTop="668dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="53dp"
-                android:text="YOE       "
+                android:text="YEAR OF EXP.       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
@@ -212,8 +217,8 @@
         android:layout_marginTop="570dp"
 
         android:id="@+id/dphno"
-        android:textSize="23sp"
-        android:layout_marginStart="170dp"
+        android:textSize="20sp"
+        android:layout_marginStart="150dp"
         android:hint="phno"/>
             <TextView
 
@@ -222,9 +227,9 @@
                 android:layout_marginTop="570dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="53dp"
-                android:text="PHNO       "
+                android:text="PHONE      "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
@@ -233,8 +238,8 @@
         android:layout_marginTop="610dp"
 
         android:id="@+id/demail"
-        android:textSize="18sp"
-        android:layout_marginStart="170dp"
+        android:textSize="16sp"
+        android:layout_marginStart="150dp"
         android:hint="email"/>
             <TextView
 
@@ -245,27 +250,30 @@
                 android:layout_marginRight="53dp"
                 android:text="EMAIL       "
                 android:textStyle="normal"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
             <TextView
 
                 android:id="@+id/driver_review"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="790dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="43dp"
-                android:text="Write a Review...       "
-                android:textColor="#424040"
-                android:textSize="23sp"
+                android:text="  Write a Review...       "
+                android:background="@drawable/btn"
+                android:gravity="center_vertical"
+                android:textColor="#7E7A7A"
+                android:textSize="20sp"
                 android:textStyle="normal"
                 android:focusable="false"/>
             <ListView
                 android:layout_width="wrap_content"
-                android:layout_height="400dp"
+                android:layout_height="2000dp"
                 android:layout_marginTop="950dp"
+                android:background="@drawable/btn"
                 android:id="@+id/lvdreview">
 
             </ListView>
@@ -276,17 +284,26 @@
         </RelativeLayout>
 </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="640dp"
+
+        android:background="@drawable/listbgstyle"
+
+        >
+
     <Button
         android:id="@+id/rentd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
 
         android:ems="10"
         android:textStyle="bold"
-        android:background="@color/colorPrimaryDark"
-        android:text="RENT CAR"
+        android:background="@drawable/joinbtn"
+        android:text="RENT DRIVER"
 
         android:textColor="#fff"/>
 
@@ -294,13 +311,14 @@
         android:id="@+id/chatd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="680dp"
-        android:background="@color/colorPrimaryDark"
-        android:drawableStart="@drawable/chat"
+        android:layout_marginStart="195dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/joinbtn"
+
         android:ems="10"
         android:text="CHAT"
         android:textColor="#fff"
 
         android:textStyle="bold" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -168,8 +168,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_scid + " INTEGER,"
             + COL_carname + " TEXT NOT NULL,"
             + COL_status + " TEXT NOT NULL,"
-            + " FOREIGN KEY ("+COL_scid+") REFERENCES "+TABLE_CAR+" ("+COL_cid+"),"
-            + " FOREIGN KEY ("+COL_nuid+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
+            + " FOREIGN KEY ("+COL_scid+") REFERENCES "+TABLE_CAR+" ("+COL_cid+"));";
 
 
     //CREATE TBALE DNOTIFACTION
@@ -186,8 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_dscid + " TEXT,"
             + COL_drivername + " TEXT,"
             + COL_dstatus + " TEXT,"
-            + " FOREIGN KEY ("+COL_dscid+") REFERENCES "+TABLE_DRIVER+" ("+COL_did+"),"
-            + " FOREIGN KEY ("+COL_dnuid+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
+            + " FOREIGN KEY ("+COL_dscid+") REFERENCES "+TABLE_DRIVER+" ("+COL_did+"));";
 
     //create table car review
 
@@ -210,7 +208,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
 
-        super(context, DATABASE_NAME, null, 28
+        super(context, DATABASE_NAME, null, 1
+
+
         );
 
     }

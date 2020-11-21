@@ -9,9 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:background="@color/colorAccent"
+
+        android:background="@color/lightwhite"
         android:gravity="center">
+        <include layout="@layout/appbar"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,6 +21,7 @@
             android:text="Update Car"
             android:textColor="#fff"
             android:textSize="30dp"
+            android:visibility="gone"
             android:textStyle="bold" />
 
         <EditText
@@ -40,7 +42,8 @@
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:ems="8"
-            android:background="#fff"
+
+            android:background="@drawable/btn"
             android:padding="10dp"
             android:hint="Brand"
             android:inputType="textPersonName"
@@ -54,7 +57,7 @@
             android:textSize="18dp"
             android:hint="Model"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:ems="8"
             android:padding="10dp"
             android:inputType="textPersonName"/>
@@ -65,7 +68,7 @@
             android:hint="Rent Amount"
             android:inputType=""
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
 
             android:padding="10dp"
             android:textSize="18dp"
@@ -78,7 +81,7 @@
             android:hint=" Agency"
             android:textSize="18dp"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:ems="8"
             android:padding="10dp"/>
 
@@ -88,7 +91,7 @@
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:hint="Kms Driven"
             android:inputType=""
             android:padding="10dp"
@@ -103,7 +106,7 @@
             android:hint="Ph.no"
             android:textSize="18dp"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:ems="8"
             android:padding="10dp"/>
         <EditText
@@ -113,7 +116,7 @@
             android:id="@+id/cloc"
             android:hint="location"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:ems="8"
             android:padding="10dp"
             android:textSize="18dp"/>
@@ -125,7 +128,7 @@
             android:id="@+id/cemail"
             android:hint="email"
             android:layout_marginTop="20dp"
-            android:background="#fff"
+            android:background="@drawable/btn"
             android:ems="8"
             android:padding="10dp"
             android:textSize="18dp"/>
@@ -157,7 +160,7 @@
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/joinbtn"
                 android:text="UPLOAD"
 
 

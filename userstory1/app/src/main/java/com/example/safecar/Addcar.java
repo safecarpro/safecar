@@ -1,8 +1,5 @@
 package com.example.safecar;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -17,12 +14,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -40,6 +42,7 @@ public class Addcar extends AppCompatActivity {
     final int REQUEST_CODE_GALLERY = 999;
     SharedPreferences sp;
     ListView lvcity;
+    Toolbar tb;
 
 
     ImageView iv;
@@ -77,6 +80,12 @@ public class Addcar extends AppCompatActivity {
         addimage =  findViewById(R.id.addimage);
         carowner= findViewById(R.id.carowner);
         iv = findViewById(R.id.iv);
+
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("ADD CAR");
 
 
         lvcity = findViewById(R.id.lvcity);
