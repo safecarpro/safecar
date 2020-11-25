@@ -21,15 +21,15 @@
 
             >
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:id="@+id/imgdriver">
 
-    </ImageView>
+            <ImageView
+                android:id="@+id/imgdriver"
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
 
+            </ImageView>
 
-    <TextView
+            <TextView
         android:id="@+id/drivid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
         android:layout_marginTop="410dp"
 
         android:id="@+id/daddress"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:layout_marginStart="150dp"
         android:hint="address"/>
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_marginTop="490dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="53dp"
-                android:text="AGE       "
+                android:text="DOB       "
                 android:textStyle="normal"
                 android:textSize="20sp"
                 android:layout_marginStart="33dp"
@@ -120,17 +120,27 @@
                 android:textSize="20sp"
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
-    <TextView
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginStart="40dp"
-        android:textSize="20sp"
-        android:gravity="center_vertical"
-        android:id="@+id/dprice"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/dollar"
-        android:hint="price"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs:"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="280dp"
+                android:layout_marginStart="20dp"/>
+
+
+            <TextView
+                android:id="@+id/dprice"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="280dp"
+
+                android:gravity="center_vertical"
+                android:hint="price"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,13 +163,13 @@
                 android:layout_marginStart="33dp"
                 android:textColor="#423F3F"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
         android:layout_marginTop="230dp"
         android:layout_marginStart="200dp"
         android:drawableLeft="@drawable/location"
         android:layout_marginEnd="41dp"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:id="@+id/dlocation"
         android:textColor="#605D5D"
         android:hint="location"/>
@@ -278,34 +288,35 @@
 
             </ListView>
 
+</RelativeLayout>
+    </ScrollView>
 
 
 
-        </RelativeLayout>
-</ScrollView>
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="640dp"
+        android:layout_marginTop="520dp"
 
         android:background="@drawable/listbgstyle"
 
         >
-
     <Button
         android:id="@+id/rentd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
 
-        android:ems="10"
-        android:textStyle="bold"
         android:background="@drawable/joinbtn"
+        android:ems="10"
         android:text="RENT DRIVER"
+        android:textColor="#fff"
 
-        android:textColor="#fff"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/chatd"
@@ -320,5 +331,7 @@
         android:textColor="#fff"
 
         android:textStyle="bold" />
+
+
     </RelativeLayout>
 </RelativeLayout>

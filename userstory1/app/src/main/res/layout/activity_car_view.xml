@@ -13,7 +13,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="280dp"
         android:text=" all cars"
-        android:id="@+id/findall">
+        android:id="@+id/findall"
+        >
 
     </Button>
     <LinearLayout

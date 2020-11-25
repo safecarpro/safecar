@@ -1,7 +1,8 @@
 package com.example.safecar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class Rating extends AppCompatActivity {
     RatingBar ratingBar;
@@ -22,6 +24,7 @@ public class Rating extends AppCompatActivity {
     SharedPreferences sd;
     String username;
     DatabaseHelper db;
+    Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,11 @@ public class Rating extends AppCompatActivity {
 
         sd = getSharedPreferences("user_details",MODE_PRIVATE);
         username  = sd.getString("username",null);
-
+        tb = findViewById(R.id.appbar);
+        setSupportActionBar(tb);
+        ActionBar actionBar = getSupportActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("REVIEW");
 
         Intent intent = getIntent();
         final String carid2 = intent.getStringExtra("carid");

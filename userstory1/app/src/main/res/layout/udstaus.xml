@@ -5,36 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".udstaus">
+    <include layout="@layout/appbar"/>
 
 
     <TextView
         android:id="@+id/did"
-        android:hint="did"
+        android:text="id"
+android:textColor="@color/black"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
+
+
         android:layout_marginStart="35dp"
-        android:textSize="16sp"/>
+        android:textSize="25sp"/>
     <TextView
         android:id="@+id/dname"
-        android:hint="dname"
+        android:text="dname"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
+        android:textSize="25dp"
+        android:textColor="@color/black"
         android:layout_marginStart="215dp"/>
     <TextView
         android:id="@+id/dstatus"
-        android:hint="status"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginStart="65dp"/>
+        android:hint="CLICK"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:textAlignment="center"
+        android:background="@drawable/btn"
+        android:gravity="center_vertical"
+        android:textColor="#7E7A7A"
+        android:textSize="25dp"
+        android:layout_marginStart="215dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Choose status:"
+        android:textStyle="italic"
+        android:textSize="25dp"
+        android:textColor="@color/black"></TextView>
     <Button
         android:id="@+id/update"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/joinbtn"
+        android:textColor="@color/black"
         android:text="update">
 
     </Button>

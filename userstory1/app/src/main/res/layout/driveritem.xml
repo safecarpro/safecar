@@ -36,7 +36,15 @@
         android:layout_alignEnd="@+id/imgdriver"
         android:layout_marginRight="30dp"
         android:layout_marginEnd="50dp"
-        android:drawableLeft="@drawable/dollar"/>
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs:"
+        android:layout_marginTop="155dp"
+        android:textSize="18dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"></TextView>
 
     <TextView
         android:id="@+id/did"
