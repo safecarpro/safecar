@@ -1,9 +1,7 @@
 package com.example.safecar;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,7 +19,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -35,7 +32,6 @@ public class Updatedriver extends AppCompatActivity {
     Button addimage,dupdate,ddelete;
     String  did,dname,daddress,dage,dgender,dcharge,dbadge,dlocation,dyoe,dphno,demail, dadddriver,ddriverreset,daddimage,uid;
     SharedPreferences sp;
-    Toolbar tb;
 
     DatabaseHelper db;
 
@@ -67,11 +63,6 @@ public class Updatedriver extends AppCompatActivity {
         addimage = findViewById(R.id.addimage);
         dupdate = findViewById(R.id.dupdate);
         ddelete = findViewById(R.id.ddelete);
-        tb = findViewById(R.id.appbar);
-        setSupportActionBar(tb);
-        ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("UPDATE DRIVER");
 
 
 

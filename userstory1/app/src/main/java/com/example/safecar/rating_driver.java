@@ -1,8 +1,7 @@
 package com.example.safecar;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,7 +21,6 @@ public class rating_driver extends AppCompatActivity {
     String temp;
     SharedPreferences sd;
     DatabaseHelper db;
-    Toolbar tb;
     String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +36,7 @@ public class rating_driver extends AppCompatActivity {
         driverid= findViewById(R.id.DRIVERID);
         user= findViewById(R.id.USER);
 
-        tb = findViewById(R.id.appbar);
-        setSupportActionBar(tb);
-        ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("BOOKINGS");
+
         sd = getSharedPreferences("user_details",MODE_PRIVATE);
          username  = sd.getString("username",null);
 

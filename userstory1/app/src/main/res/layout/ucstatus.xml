@@ -7,55 +7,56 @@
     android:layout_height="match_parent"
     tools:context=".ucstatus">
 
+    <TextView
 
+        android:hint="ID"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="35dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="14sp"/>
+    <TextView
+
+        android:hint="CAR"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="215dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="14sp"/>
     <TextView
         android:id="@+id/cid"
-        android:text="cid"
-        android:textStyle="normal"
-        android:textColor="@color/black"
-
+        android:hint="cid"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="35dp"
-
-        android:textSize="25sp"/>
+        android:background="@drawable/btn"
+        android:textSize="16sp"/>
     <TextView
         android:id="@+id/cname"
-        android:text="cname"
-        android:textSize="25dp"
-        android:textColor="@color/black"
+        android:hint="cname"
+        android:background="@drawable/btn"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="215dp"/>
     <TextView
         android:id="@+id/cstatus"
-        android:text="CLICK"
-        android:textSize="25dp"
-        android:textColor="@color/black"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="130dp"
-        android:textAlignment="center"
-        android:gravity="center_vertical"
+        android:hint="choose status.."
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="165dp"
         android:background="@drawable/btn"
-        android:layout_marginStart="215dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:text="Choose status:"
-        android:textStyle="italic"
-        android:textSize="25dp"
-        android:textColor="@color/black"></TextView>
+        android:layout_marginStart="65dp"/>
     <Button
         android:id="@+id/update"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:background="@drawable/joinbtn"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="225dp"
         android:text="update">
 
     </Button>

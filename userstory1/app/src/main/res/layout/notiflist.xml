@@ -22,12 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="115dp"
 
         android:layout_marginTop="45dp"
 
         android:text="rented"
-        android:textStyle="italic"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp" />
@@ -57,7 +56,7 @@
 
         android:layout_marginTop="45dp"
 
-        android:layout_marginStart="223dp"
+        android:layout_marginStart="193dp"
         android:layout_marginRight="-110dp"
         android:text="carname"
         android:textAlignment="center"
@@ -75,11 +74,11 @@
 
         android:layout_marginTop="10dp"
         android:layout_marginRight="-110dp"
-        android:text="time"
+        android:drawableLeft="@drawable/time"
 
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:drawableLeft="@drawable/time"/>
+        android:text="time"
+        android:textColor="#979494"
+        android:textSize="15sp" />
 
     <TextView
     android:id="@+id/locpick"
@@ -121,7 +120,7 @@
         android:layout_marginRight="28dp"
         android:drawableLeft="@drawable/location"
         android:text="locdrop"
-
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
@@ -165,7 +164,7 @@
         android:layout_marginTop="125dp"
         android:layout_marginRight="28dp"
         android:text="datedrop"
-
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:drawableLeft="@drawable/cal"/>
@@ -173,7 +172,7 @@
         android:id="@+id/carid3"
         android:layout_width="115dp"
         android:layout_height="28dp"
-android:visibility="gone"
+
         android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
         android:layout_marginRight="28dp"

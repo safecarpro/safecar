@@ -1,7 +1,5 @@
 package com.example.safecar;
 
-import  androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,22 +12,20 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-
 public class bookeddrivers extends AppCompatActivity {
 
     DatabaseHelper db;
     SharedPreferences cu;
-    String dnuid, username;
-    TextView driverid1, drivername1;
-    Toolbar tt;
+    String dnuid,username;
+    TextView driverid1,drivername1;
 
     private ListView listView;
     private SimpleCursorAdapter adapter;
 
-    final String[] from = new String[]{db.COL_dnuid, db.COL_dusername,
-            db.COL_dploc, db.COL_ddloc, db.COL_dpdate, db.COL_dddate, db.COL_dtime, db.COL_drivername, db.COL_dscid};
+    final String[] from = new String[]{db.COL_dnuid,db.COL_dusername,
+            db.COL_dploc, db.COL_ddloc,db.COL_dpdate,db.COL_dddate,db.COL_dtime,db.COL_drivername,db.COL_dscid};
 
-    final int[] to = new int[]{R.id.nuid, R.id.username, R.id.locpick, R.id.locdrop, R.id.datepic, R.id.datedrop, R.id.time, R.id.driver, R.id.drivid};
+    final int[] to = new int[]{R.id.nuid,R.id.username,  R.id.locpick,R.id.locdrop,R.id.datepic,R.id.datedrop, R.id.time,R.id.driver,R.id.drivid};
 
 
     @Override
@@ -37,8 +33,8 @@ public class bookeddrivers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookeddrivers);
 
-        cu = getSharedPreferences("user_details", MODE_PRIVATE);
-        dnuid = cu.getString("uid", null);
+        cu = getSharedPreferences("user_details",MODE_PRIVATE);
+        dnuid = cu.getString("uid",null);
         username = cu.getString("username", null);
 
         db = new DatabaseHelper(this);
@@ -46,13 +42,7 @@ public class bookeddrivers extends AppCompatActivity {
 
         listView = findViewById(R.id.dbooklv);
 
-        tt = findViewById(R.id.appbar);
-        setSupportActionBar(tt);
-        ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("BOOKINGS");
-
-        adapter = new SimpleCursorAdapter(this, R.layout.cdlist, cursor, from, to, 0);
+        adapter = new SimpleCursorAdapter(this,R.layout.cdlist, cursor, from, to,0);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
@@ -68,22 +58,13 @@ public class bookeddrivers extends AppCompatActivity {
                 String dname = drivername1.getText().toString();
 
                 Intent s = new Intent(bookeddrivers.this, deldbook.class);
-                s.putExtra("did", did);
-                s.putExtra("dname", dname);
+                s.putExtra("did",did);
+                s.putExtra("dname",dname);
                 startActivity(s);
                 finish();
 
             }
         });
 
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent in = new Intent(getApplicationContext(), Home.class);
-        startActivity(in);
-        finish();
     }
 }
