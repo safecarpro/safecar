@@ -78,7 +78,7 @@ public class Login extends AppCompatActivity {
 
                 } else {
                     mProgress.dismiss();
-                    Toast.makeText(Login.this, "Invalid mobile number or password.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Invalid username number or password.", Toast.LENGTH_SHORT).show();
                 }
 
 

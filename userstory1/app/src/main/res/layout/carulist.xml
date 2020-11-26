@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/cuamount"
-        android:layout_width="41dp"
+        android:layout_width="71dp"
         android:layout_height="39dp"
 
         android:layout_marginStart="183dp"
