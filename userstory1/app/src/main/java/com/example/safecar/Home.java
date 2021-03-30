@@ -66,10 +66,10 @@ public class Home extends AppCompatActivity  {
         lvcity = findViewById(R.id.lvcity);
         lvcity = new ListView(this);
         List<String> data = new ArrayList<>();
-        data.add("Calicut");
-        data.add("Malapuram");
-        data.add("Wayanad");
-        data.add("Kochi");
+        data.add("calicut");
+        data.add("malapuram");
+        data.add("wayanad");
+        data.add("kochi");
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
         lvcity.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
@@ -113,7 +113,6 @@ public class Home extends AppCompatActivity  {
                         Intent cbook = new Intent(Home.this, bookedcars.class);
                         startActivity(cbook);
                         finish();
-                        Toast.makeText(Home.this, "car bookings", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.addcar:
                         Intent main = new Intent(Home.this, Addcar.class);
@@ -125,7 +124,6 @@ public class Home extends AppCompatActivity  {
                         Intent dbook = new Intent(Home.this, bookeddrivers.class);
                         startActivity(dbook);
                         finish();
-                        Toast.makeText(Home.this, "driver bookings", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.adddriver:
                         Intent intent= new Intent(Home.this,Adddriver.class);
@@ -158,16 +156,7 @@ public class Home extends AppCompatActivity  {
                         Toast.makeText(Home.this, "update driver", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.about:
-                        Intent p = new Intent(Home.this, About.class);
-                        startActivity(p);
-                        finish();
                         Toast.makeText(Home.this, "about", Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.logout:
-                        Intent n = new Intent(Home.this, Login.class);
-                        startActivity(n);
-                        finish();
-                        Toast.makeText(Home.this, "logout", Toast.LENGTH_SHORT).show();
                         return true;
 
                 }

@@ -19,17 +19,18 @@ public class bookedcars extends AppCompatActivity {
 
     DatabaseHelper db;
     SharedPreferences cu;
-    String nuid, username;
-    TextView carid1, carname1;
+    String nuid,username;
+    TextView carid1,carname1;
     Toolbar tb;
 
     private ListView listView;
     private SimpleCursorAdapter adapter;
 
-    final String[] from = new String[]{db.COL_nuid, db.COL_username,
-            db.COL_ploc, db.COL_dloc, db.COL_pdate, db.COL_ddate, db.COL_time, db.COL_carname, db.COL_scid};
+    final String[] from = new String[]{db.COL_nuid,db.COL_username,
+            db.COL_ploc, db.COL_dloc,db.COL_pdate,db.COL_ddate,db.COL_time,db.COL_carname,db.COL_scid};
 
-    final int[] to = new int[]{R.id.nuid, R.id.username, R.id.locpick, R.id.locdrop, R.id.datepic, R.id.datedrop, R.id.time, R.id.carname, R.id.carid3};
+    final int[] to = new int[]{R.id.nuid,R.id.username,  R.id.locpick,R.id.locdrop,R.id.datepic,R.id.datedrop, R.id.time,R.id.carname,R.id.carid3};
+
 
 
     @Override
@@ -37,8 +38,8 @@ public class bookedcars extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookedcars);
 
-        cu = getSharedPreferences("user_details", MODE_PRIVATE);
-        nuid = cu.getString("uid", null);
+        cu = getSharedPreferences("user_details",MODE_PRIVATE);
+        nuid = cu.getString("uid",null);
         username = cu.getString("username", null);
         //String cid = carid.getText().toString();
 
@@ -50,10 +51,10 @@ public class bookedcars extends AppCompatActivity {
         tb = findViewById(R.id.appbar);
         setSupportActionBar(tb);
         ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("BOOKINGS");
+       // actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("bookings");
 
-        adapter = new SimpleCursorAdapter(this, R.layout.cbooklist, cursor, from, to, 0);
+        adapter = new SimpleCursorAdapter(this,R.layout.cbooklist, cursor, from, to,0);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
@@ -69,20 +70,12 @@ public class bookedcars extends AppCompatActivity {
                 String cname = carname1.getText().toString();
 
                 Intent s = new Intent(bookedcars.this, delcbook.class);
-                s.putExtra("cid", cid);
-                s.putExtra("cname", cname);
+                s.putExtra("cid",cid);
+                s.putExtra("cname",cname);
                 startActivity(s);
                 finish();
 
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent in = new Intent(getApplicationContext(), Home.class);
-        startActivity(in);
-        finish();
     }
 }

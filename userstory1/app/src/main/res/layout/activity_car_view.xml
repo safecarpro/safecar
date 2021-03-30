@@ -12,9 +12,8 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="280dp"
-        android:text=" all cars"
-        android:id="@+id/findall"
-        >
+        android:background="#D31919"
+        android:id="@+id/findall">
 
     </Button>
     <LinearLayout

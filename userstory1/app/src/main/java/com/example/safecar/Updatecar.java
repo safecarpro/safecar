@@ -1,9 +1,7 @@
 package com.example.safecar;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.app.SharedElementCallback;
@@ -32,7 +30,7 @@ public class Updatecar extends AppCompatActivity {
     Button addcimage,cupdate,cdelete;
     SharedPreferences sp;
     String cid,cbrand,cmodel,camount,cagency,ckms,cphone,cloc,cemail, caddcar,ccarreset,caddimage,uid;
-     Toolbar tb;
+
 
     DatabaseHelper db;
 
@@ -58,12 +56,6 @@ public class Updatecar extends AppCompatActivity {
          addcimage = findViewById(R.id.addcimage);
         cupdate = findViewById(R.id.cupdate);
         cdelete = findViewById(R.id.cdelete);
-        tb = findViewById(R.id.appbar);
-
-        setSupportActionBar(tb);
-        ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("UPDATE CAR");
 
 
         cdelete.setOnClickListener(new View.OnClickListener() {
